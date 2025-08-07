@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Catalog from './components/Catalog/Catalog';
 import FirstHeroSection from "./components/FirstHeroSection/FirstHeroSection";
+import SecondHeroSection from "./components/SecondHeroSection/SecondHeroSection";
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
           <Header />
 
           <FirstHeroSection />
-
+          <SecondHeroSection />
           <Catalog />
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* register your input into the hook by invoking the "register" function */}
