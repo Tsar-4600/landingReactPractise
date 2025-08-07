@@ -1,65 +1,28 @@
 import './Header.css'
-import { Heading, Flex, Spacer } from "@chakra-ui/react"
-import { Box, SkipNavContent, SkipNavLink, Text, Stack, Wrap } from "@chakra-ui/react"
+import { Box,  Flex,  Wrap, Link, Image } from "@chakra-ui/react"
 function Header() {
   return (
-
     <header>
-      <Heading as="h1">Level 1</Heading>
-      <nav>
-
-        <ul>
-
-          <Stack direction="row">
-              <Wrap>
-                <li>Меню1</li>
-                <li>Меню1</li>
-                <li>Меню1</li>
-                <li>Меню1</li>
-                <li>Меню1</li>
-                <li>Меню1</li>
-                <li>Меню1</li>
-                <li>Меню1</li>
-              </Wrap>
-          </Stack>
-
-
-        </ul>
-
-
-      </nav>
-      <Box>
-        <SkipNavLink>Skip to Content</SkipNavLink>
-
-        {/* Simulated navigation */}
-        <Box p="4" bg="gray.100" borderRadius="md" mb="4">
-          <Text fontWeight="medium" mb="2">
-            Navigation
-          </Text>
-          <Text fontSize="sm" color="gray.600">
-            This represents a navigation area that users might want to skip over.
-          </Text>
+      <Flex justify="space-between" align="center">
+        <Box>
+          <Image src="/img/zoomlion-glvertical.svg" />
         </Box>
 
-        {/* Main content area */}
-        <SkipNavContent>
-          <Box p="4" bg="blue.50" borderRadius="md">
-            <Text fontWeight="medium" mb="2">
-              Main Content
-            </Text>
-            <Text fontSize="sm">
-              This is the main content area. When users press Tab and then Enter
-              on the "Skip to Content" link, focus will jump directly here,
-              bypassing the navigation.
-            </Text>
-          </Box>
-        </SkipNavContent>
-      </Box>
+        <Wrap gap="6">
+          <Link href="...">Каталог</Link>
+          <Link href="...">Преимущества</Link>
+          <Link href="...">Контакты</Link>
+          <Link href="...">О нас</Link>
+        </Wrap>
+
+        <Flex direction="column" align="flex-end">
+          <Link href="tel:+78126657804">+7 812 665-78-04</Link>
+          <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>
+          <Link href="https://gkvertikal.ru/">Сайт Дистрибьютора</Link>
+
+        </Flex>
+      </Flex>
     </header>
-
-
-
-
   )
 }
 

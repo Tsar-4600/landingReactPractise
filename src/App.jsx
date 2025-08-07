@@ -1,11 +1,13 @@
+
+import { useForm } from "react-hook-form";
+import { Container, Theme } from "@chakra-ui/react";
+import { useState } from 'react';
+import './App.css';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import { useForm } from "react-hook-form"
-
-import { Container } from "@chakra-ui/react"
-import { useState } from 'react'
-
-import './App.css'
+import Catalog from './components/Catalog/Catalog';
+import FirstHeroSection from "./components/FirstHeroSection/FirstHeroSection";
 
 function App() {
 
@@ -21,24 +23,27 @@ function App() {
   console.log(watch("example")) // watch input value by passing the name of it
 
   return (
-    <>
+      <Theme appearance="light">
+        <Container >
+          <Header />
 
-      <Container>
-        <Header />
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* register your input into the hook by invoking the "register" function */}
-          <input defaultValue="test" {...register("example")} />
+          <FirstHeroSection />
 
-          {/* include validation with required or other standard HTML validation rules */}
-          <input {...register("exampleRequired", { required: true })} />
-          {/* errors will return when field validation fails  */}
-          {errors.exampleRequired && <span>This field is required</span>}
+          <Catalog />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* register your input into the hook by invoking the "register" function */}
+            <input defaultValue="test" {...register("example")} />
 
-          <input type="submit" />
-        </form>
-        <Footer />
-      </Container>
-    </>
+            {/* include validation with required or other standard HTML validation rules */}
+            <input {...register("exampleRequired", { required: true })} />
+            {/* errors will return when field validation fails  */}
+            {errors.exampleRequired && <span>This field is required</span>}
+
+            <input type="submit" />
+          </form>
+          <Footer />
+        </Container>
+      </Theme>
   )
 }
 

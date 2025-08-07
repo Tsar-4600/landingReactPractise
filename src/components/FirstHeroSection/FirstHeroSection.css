@@ -1,0 +1,130 @@
+
+.firstHeroSection{
+    overflow:hidden;
+}
+/* Все, что с картинками связано */
+.firstHeroSection__imageWrapper{
+    position: relative;
+    min-height: 520px;
+}
+
+.img-HeroSection1-left, .img-HeroSection1-right{
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+/* Левая часть */
+.img-HeroSection1-left.big{
+    width: 500px;
+    height: 390px;
+    z-index: 1; /* Чтобы было поверх остальных */
+    opacity: 1;
+    animation-delay: 0.9s;
+}
+.img-HeroSection1-left.medium{
+    width: 370px;
+    height: 250px;
+    position: absolute;
+    bottom: 15px; /* Сдвиг вверх */
+    left: -40px; /* Сдвиг вправо */
+    z-index: 2;
+    opacity: 0.9;
+    animation-delay: 0.6s;
+}
+.img-HeroSection1-left.small{
+    width:215px;
+    height: 160px;
+    position: absolute;
+    bottom: 65px; /* Ещё выше */
+    left: 200px; /* Ещё правее */
+    z-index: 3;
+    opacity: 0.9;
+    animation-delay: 0.3s;
+}
+
+/* Правая часть */
+.img-HeroSection1-right.big {
+    width: 510px;
+    height: 420px;
+    z-index: 1; 
+    opacity: 1;
+    animation-delay: 0.95s;
+}
+.img-HeroSection1-right.medium{
+    width: 440px;
+    height: 250px;
+    position: absolute;
+    bottom: 25px; 
+    right: -50px; 
+    z-index: 3;
+    opacity: 0.9;
+    animation-delay: 0.6;
+}
+.img-HeroSection1-right.small{
+    width: 280px;
+    height: 170px;
+    position: absolute;
+    bottom: 10px; 
+    right: 250px; 
+    z-index: 2;
+    opacity: 1;
+    animation-delay: 0.3s;
+}
+ 
+.img-HeroSection1-left.big, .img-HeroSection1-left.medium, .img-HeroSection1-left.small{
+    animation-name: slideInFromLeft;
+}
+
+.img-HeroSection1-right.big, .img-HeroSection1-right.medium, .img-HeroSection1-right.small{
+    animation-name: slideInFromRight;
+}
+@keyframes slideInFromLeft {
+    from {
+        transform: scaleX(-1) translateX(500px);
+    }
+    to {
+        transform: scaleX(-1) translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: scaleX(1) translateX(500px);
+    }
+    to {
+        transform: scaleX(1) translateX(0);
+    }
+}
+
+/* Анимации  надписи и кнопки*/
+@keyframes slideFromTop {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromBottom {
+    from {
+        transform: translateY(-250px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.firstHeroSection__heading {
+    animation: slideFromBottom 1s ease-out both;
+}
+
+/* Анимация кнопки */
+.firstHeroSection__button {
+    animation: slideFromTop 1s ease-out 0.3s both; /* Задержка 0.3s */
+}
