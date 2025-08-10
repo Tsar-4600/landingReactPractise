@@ -1,6 +1,7 @@
 
 import { useForm } from "react-hook-form";
-import { Container, Theme } from "@chakra-ui/react";
+import { Container, ChakraProvider, Theme } from "@chakra-ui/react";
+import { system } from './components/Theme/Theme';
 import { useState } from 'react';
 import './App.css';
 
@@ -9,9 +10,12 @@ import Footer from './components/Footer/Footer';
 import Catalog from './components/Catalog/Catalog';
 import FirstHeroSection from "./components/FirstHeroSection/FirstHeroSection";
 import SecondHeroSection from "./components/SecondHeroSection/SecondHeroSection";
+import ThirdHeroSection from "./components/ThirdHeroSection/ThirdHeroSection";
+
 
 function App() {
 
+  //form
   const {
     register,
     handleSubmit,
@@ -24,12 +28,15 @@ function App() {
   console.log(watch("example")) // watch input value by passing the name of it
 
   return (
-      <Theme appearance="light">
-        <Container >
-          <Header />
+    <ChakraProvider value={system}>
+      <Theme appearance="dark" >
 
+        {/* START Content of the page */}
+        <Container>
+          <Header />
           <FirstHeroSection />
           <SecondHeroSection />
+          <ThirdHeroSection />
           <Catalog />
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* register your input into the hook by invoking the "register" function */}
@@ -44,7 +51,11 @@ function App() {
           </form>
           <Footer />
         </Container>
+        {/* END Content of the page */}
+
+
       </Theme>
+    </ChakraProvider>
   )
 }
 

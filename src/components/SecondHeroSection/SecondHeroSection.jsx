@@ -1,24 +1,56 @@
-import { Grid, GridItem} from "@chakra-ui/react";
+import { Grid, GridItem, Image, Text, Box, Button } from "@chakra-ui/react";
 
-
-
-
-function SecondHeroSection() {
+function ThirdHeroSection() {
     return (
-        <>
-            <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(4, 1fr)" gap="6">
-                <GridItem colSpan={2}>
+        <section>
+            <Grid templateColumns={{ base: "1fr", lg: "repeat(5, 1fr)" }}>
+                <GridItem colSpan={1}>
+                    <Grid templateRows={{ base: "1fr", lg: "repeat(2, 1fr)" }}>
+                        <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center">
+                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Box><Text>lorem loremloremloremloreorem</Text></Box>
+                        </GridItem>
+                        <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center">
+                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Box><Text>lorem loremloremloremloreorem</Text></Box>
+                        </GridItem>
+                        <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center">
+                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Box><Text>lorem loremloremloremloreorem</Text></Box>
+                        </GridItem>
+                    </Grid>
                 </GridItem>
-                <GridItem colSpan={2}>
+                <GridItem
+                    colSpan={3}
+                    display="flex"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    flexDirection="column"
+                >
+                    <Image
+                        fit="contain"
+                        src="/img/forklift/fd20h.png"
+                        maxW="100%"
+                        maxH="100%"
+                    />
+                    <Button asChild>
+                        <a href="#catalog">В каталог</a>
+                    </Button>
                 </GridItem>
-                <GridItem colSpan={2}>
+                <GridItem colSpan={1}>
+                    <Grid templateRows="repeat(2, 1fr)">
+                        <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center">
+                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Box><Text>lorem loremloremloremloreorem</Text></Box>
+                        </GridItem>
+                        <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center">
+                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Box><Text>lorem loremloremloremloreoremsdfsdfsfdsfs</Text></Box>
+                        </GridItem>
+                    </Grid>
                 </GridItem>
-                <GridItem colSpan={4}>
-                </GridItem>
-            </Grid >
-            
-        
-        </>
+            </Grid>
+        </section>
     );
 };
-export default SecondHeroSection;
+export default ThirdHeroSection;

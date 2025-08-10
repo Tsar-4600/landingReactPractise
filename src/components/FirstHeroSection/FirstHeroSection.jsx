@@ -12,7 +12,7 @@ function FirstHeroSection() {
                         <Image className="img-HeroSection1-left medium" src="/img/forklift/fd20h.png"/>
                         <Image className="img-HeroSection1-left small" src="/img/forklift/fb35z.png"/>
                     </Stack>
-                    <Button asChild className="firstHeroSection__button">
+                    <Button asChild>
                         <a href="#catalog">Преимущества</a>
                     </Button>
                     <Stack className="firstHeroSection__imageWrapper" >
