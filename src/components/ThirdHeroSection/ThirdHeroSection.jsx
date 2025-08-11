@@ -1,8 +1,9 @@
-import { Grid, GridItem, Image, Text, Box, Button } from "@chakra-ui/react";
+import { Heading, Grid, GridItem, Image, Text, Box, Button } from "@chakra-ui/react";
 
 function ThirdHeroSection() {
     return (
         <section>
+            <Heading paddingBottom="25px" as="h2">Маленькие и мини экскаваторы</Heading>
             <Grid templateColumns={{ base: "1fr", lg: "repeat(5, 1fr)" }}>
                 <GridItem colSpan={1}>
                     <Grid templateRows={{ base: "1fr", lg: "repeat(2, 1fr)" }}>

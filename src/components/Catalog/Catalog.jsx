@@ -1,4 +1,5 @@
-import { Button, Card, Image, Text, Grid, GridItem, CloseButton, Dialog, Portal, Accordion, Span } from "@chakra-ui/react"
+import { Button, Card, Image, Text, Grid, GridItem, CloseButton, Dialog, Portal, Accordion, Span, Box, Flex, Center, Heading } from "@chakra-ui/react"
+import SimpleSlider from "./catalogComponents/SimpleSlider/SimpleSlider";
 
 
 function Catalog() {
@@ -6,11 +7,12 @@ function Catalog() {
         { value: "a", title: "First Item", text: "Some value 1..." },
         { value: "b", title: "Second Item", text: "Some value 2..." },
         { value: "c", title: "Third Item", text: "Some value 3..." },
+        { value: "v", title: "fourth Item", text: "Some value 4..." },
     ];
     return (
 
         <section id="catalog" className="catalog-section">
-
+            <Heading paddingBottom="25px" as="h2">Каталог</Heading>
             <Grid
                 templateColumns="repeat(auto-fill, minmax(320px, 1fr))"
                 gap={5}
@@ -41,25 +43,48 @@ function Catalog() {
                                     <Dialog.Positioner>
                                         <Dialog.Content>
                                             <Dialog.Header>
-                                                <Dialog.Title>Dialog Title</Dialog.Title>
+                                                <Dialog.Title>Погрузчик FD50</Dialog.Title>
                                                 <Dialog.CloseTrigger asChild>
                                                     <CloseButton size="sm" />
                                                 </Dialog.CloseTrigger>
                                             </Dialog.Header>
                                             <Dialog.Body>
-                                                <Accordion.Root collapsible defaultValue={["b"]}>
-                                                    {items.map((item, index) => (
-                                                        <Accordion.Item key={index} value={item.value}>
-                                                            <Accordion.ItemTrigger>
-                                                                <Span flex="1">{item.title}</Span>
-                                                                <Accordion.ItemIndicator />
-                                                            </Accordion.ItemTrigger>
-                                                            <Accordion.ItemContent>
-                                                                <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
-                                                            </Accordion.ItemContent>
-                                                        </Accordion.Item>
-                                                    ))}
-                                                </Accordion.Root>
+                                                <Grid
+                                                    templateColumns={{ base: "1fr", md: "1fr 1fr" }}
+                                                    gap={4}
+                                                >
+                                                {/* Left Side: Slider */}
+                                                <Box>
+                                                    <SimpleSlider />
+                                                </Box>
+                                                {/* Right Side: Characteristics and Price */}
+                                                <Box>
+                                                    < Box fontSize="2xl" fontWeight="bold" marginBottom="2">14000000 руб.</Box>
+                                                    <Flex justifyContent="space-between" flexWrap="wrap" marginBottom="2">
+                                                        <Box>Характеристика1</Box>
+                                                        <Box>Значение1</Box>
+                                                    </Flex>
+                                                    <Flex justifyContent="space-between" marginBottom="2">
+                                                        <Span>Характеристика2</Span>
+                                                        <Span>Значение2</Span>
+                                                    </Flex>
+                                                </Box>
+                                                    </Grid>
+                                                    <Accordion.Root collapsible defaultValue={["b"]}>
+                                                        {items.map((item, index) => (
+                                                            <Accordion.Item key={index} value={item.value}>
+                                                                <Accordion.ItemTrigger>
+                                                                    <Span flex="1">{item.title}</Span>
+                                                                    <Accordion.ItemIndicator />
+                                                                </Accordion.ItemTrigger>
+                                                                <Accordion.ItemContent>
+                                                                    <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
+                                                                </Accordion.ItemContent>
+                                                            </Accordion.Item>
+                                                        ))}
+                                                    </Accordion.Root>
+
+
                                             </Dialog.Body>
                                         </Dialog.Content>
                                     </Dialog.Positioner>
