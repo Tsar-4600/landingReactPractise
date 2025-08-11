@@ -23,6 +23,7 @@ function SimpleSlider() {
                 {[...Array(6)].map((_, index) => ( // Or replace with your images
                     <div key={index}>
                         <Image src={`/img/forklift/fd50.png`} />
+                        
                     </div>
                 ))}
             </Slider>
