@@ -22,10 +22,10 @@ function Contacts() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Stack maxW="320px">
                     {/* register your input into the hook by invoking the "register" function */}
-                    <Input variant="outline" defaultValue="test" {...register("example")} />
+                    <Input variant="subtitle" defaultValue="test" {...register("example")} />
 
                     {/* include validation with required or other standard HTML validation rules */}
-                    <Input variant="outline" {...register("exampleRequired", { required: true })} />
+                    <Input variant="subtitle" {...register("exampleRequired", { required: true })} />
                     {/* errors will return when field validation fails  */}
                     {errors.exampleRequired && <span>This field is required</span>}
 
