@@ -47,7 +47,7 @@ function ThirdHeroSection() {
                     <Box className="heroSection3__advantage" gridColumn={{ base:"3", sm:"2", md: "4", lg: "4"}} gridRow={{ base:"1", sm:"1", md: "1", lg:"1", xl: "2" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open1} onOpenChange={(e) => setOpen1(e.open)}>
                             <Popover.Trigger asChild>
-                                <Button size="sm" variant="solid">
+                                <Button size="sm"  >
                                     1
                                 </Button>
                             </Popover.Trigger>
@@ -75,7 +75,7 @@ function ThirdHeroSection() {
                     <Box className="heroSection3__advantage" gridColumn={{ base:"6", sm:"4", md: "11", xl: "11" }} gridRow={{ base:"2", sm: "3", md: "5", lg: "3", xl:"5"}} zIndex={1} textAlign="center">
                         <Popover.Root open={open2} onOpenChange={(e) => setOpen2(e.open)}>
                             <Popover.Trigger asChild>
-                                <Button size="sm" variant="solid">
+                                <Button size="sm" variant="solid" >
                                     2
                                 </Button>
                             </Popover.Trigger>
@@ -101,7 +101,7 @@ function ThirdHeroSection() {
                     <Box className="heroSection3__advantage" gridColumn={{ base:"5", sm:"3", md: "8", lg: "9" }} gridRow={{ base:"2", sm:"3", md: "6", lg:"3", xl: "6" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open3} onOpenChange={(e) => setOpen3(e.open)}>
                             <Popover.Trigger asChild>
-                                <Button size="sm" variant="solid">
+                                <Button size="sm" variant="solid" >
                                     3
                                 </Button>
                             </Popover.Trigger>
@@ -126,7 +126,7 @@ function ThirdHeroSection() {
                     <Box className="heroSection3__advantage" gridColumn={{ base:"1", md: "2", lg: "2" }} gridRow={{ base:"2", sm:"3", md: "7", lg: "4", xl: "7"}} zIndex={1} textAlign="center">
                         <Popover.Root open={open4} onOpenChange={(e) => setOpen4(e.open)}>
                             <Popover.Trigger asChild>
-                                <Button size="sm" variant="solid">
+                                <Button size="sm" variant="solid" >
                                     4
                                 </Button>
                             </Popover.Trigger>
@@ -151,7 +151,7 @@ function ThirdHeroSection() {
                     <Box className="heroSection3__advantage" gridColumn={{ base:"5", sm:"3", md: "9", lg: "9" }} gridRow={{ base:"1", sm:"2", md: "4", lg: "4" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open5} onOpenChange={(e) => setOpen5(e.open)}>
                             <Popover.Trigger asChild>
-                                <Button size="sm" variant="solid">
+                                <Button size="sm" variant="solid" >
                                     5
                                 </Button>
                             </Popover.Trigger>
@@ -173,7 +173,7 @@ function ThirdHeroSection() {
                             </Portal>
                         </Popover.Root>
                     </Box>
-                    <Button gridColumn={{ base: " 3 / span 2", md: "5 / span 4" , lg: " 5 / span 4" }} gridRow={{ base: "3", sm: "4", md: "8", lg: "10" }} asChild>
+                    <Button gridColumn={{ base: " 3 / span 2", md: "5 / span 4" , lg: " 5 / span 4" }} gridRow={{ base: "3", sm: "4", md: "8", lg: "10" }} asChild bg="brand.303" >
                         <a href="#catalog">В каталог</a>
                     </Button>
                 </GridItem>

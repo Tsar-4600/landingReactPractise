@@ -2,7 +2,7 @@
 
 
 
-import { Container, ChakraProvider, Theme } from "@chakra-ui/react";
+import { Container, ChakraProvider, Theme  } from "@chakra-ui/react";
 import { system } from './components/Theme/Theme';
 import './App.css';
 
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <ChakraProvider value={system}>
-      <Theme appearance="dark" bg="brand.304" >
+      <Theme appearance="dark" >
 
         {/* START Content of the page */}
         <Container>
@@ -31,6 +31,7 @@ function App() {
           <FirstHeroSection />
           <SecondHeroSection />
           <ThirdHeroSection />
+
           <Catalog />
           <Contacts />
           <About />

@@ -33,7 +33,7 @@ function Catalog() {
                             </Text>
                         </Card.Body>
                         <Card.Footer gap="2">
-                            <Button variant="solid">Заказать лизинг</Button>
+                            <Button variant="solid" bg="brand.303">Заказать лизинг</Button>
                             <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom">
                                 <Dialog.Trigger asChild>
                                     <Button variant="ghost">Подробнее</Button>
@@ -69,8 +69,18 @@ function Catalog() {
                                                             <Span>Характеристика2</Span>
                                                             <Span>Значение2</Span>
                                                         </Flex>
+                                                        <Flex justifyContent="space-between" marginBottom="2">
+                                                            <Span>Характеристика2</Span>
+                                                            <Span>Значение2</Span>
+                                                        </Flex>
+                                                        <Flex justifyContent="space-between" marginBottom="2">
+                                                            <Span>Характеристика2</Span>
+                                                            <Span>Значение2</Span>
+                                                        </Flex>
                                                     </Box>
                                                 </Grid>
+
+                                                
                                                 <Accordion.Root collapsible defaultValue={["b"]}>
                                                     {items.map((item, index) => (
                                                         <Accordion.Item key={index} value={item.value}>
