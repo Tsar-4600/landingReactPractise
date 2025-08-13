@@ -17,6 +17,7 @@ import SecondHeroSection from "./components/SecondHeroSection/SecondHeroSection"
 import ThirdHeroSection from "./components/ThirdHeroSection/ThirdHeroSection";
 import Contacts from "./components/Contacts/Contacts";
 import About from "./components/About/About";
+import CallToActionBanner from "./components/CallToActionBanner/CallToActionBanner";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Container>
           <Header />
           <FirstHeroSection />
+          <CallToActionBanner/>
           <SecondHeroSection />
           <ThirdHeroSection />
 

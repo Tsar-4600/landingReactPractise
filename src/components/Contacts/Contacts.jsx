@@ -20,13 +20,13 @@ function Contacts() {
   };
 
   return (
-    <Box maxW="container.sm" mx="auto" p={4}>
-      <Heading as="h2" mb={6} textAlign="center">
+    <Box p={4}>
+      <Heading as="h2" mb={6}>
         Контакты
       </Heading>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Stack spacing={4} maxW="md" mx="auto">
+        <Stack spacing={4} maxW="md">
           {/* Поле телефона */}
           <Box>
             <Text as="label" htmlFor="phone" display="block" mb={1} fontWeight="medium">

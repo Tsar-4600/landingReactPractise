@@ -54,6 +54,7 @@ const config = defineConfig({
           302: { value: "#4D4848" },
           303: { value: "#a6d900" },
           304: { value: "#0e0d0dff" },
+          305: {value: "#a4cf4e"},
           950: { value: "#001a33" },
         },
       },
