@@ -34,10 +34,10 @@ function SecondHeroSection() {
                     position="relative"
                     minH={{ base: "300px", md: "400px", lg: "500px" }}
                     display="grid"
-                    gridTemplateColumns={{ base: "repeat(12, 1fr)" }}
-                    gridTemplateRows={{ base: "repeat(3, 1fr)", md: "repeat(8, 1fr)", lg: "repeat(10, 1fr)" }}
+                    gridTemplateColumns={{ base: "repeat(6, 1fr)", md: "repeat(12, 1fr)" }}
+                    gridTemplateRows={{ base: "repeat(4, 1fr)", md: "repeat(8, 1fr)", lg: "repeat(10, 1fr)" }}
 
-                    gap={4}
+                    gap={5}
                     alignItems="center"
                     justifyContent="center"
                     bgImage="url('/img/forklift/fd20h.png')"
@@ -47,7 +47,7 @@ function SecondHeroSection() {
 
                 >
 
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "5" }} gridRow={{ base: "7" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "3", sm:"2", md:"5", xl: "5" }} gridRow={{ base: "2", sm:"3", md:"6", lg: "5", xl: "7" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open1} onOpenChange={(e) => setOpen1(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid">
@@ -67,7 +67,7 @@ function SecondHeroSection() {
                         </Popover.Root>
                     </Box>
 
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "8" }} gridRow={{ base: "7" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "4", sm:"4", md:"8", lg: "8" }} gridRow={{ base: "2", sm: "3", md:"6",  lg: "5", xl: "7" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open2} onOpenChange={(e) => setOpen2(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid">
@@ -87,7 +87,7 @@ function SecondHeroSection() {
                         </Popover.Root>
                     </Box>
 
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "9" }} gridRow={{ base: "5" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "5", md:"9", lg: "9" }} gridRow={{ base: "2", sm: "3",  md:"5",  lg: "4", xl: "7"}} zIndex={1} textAlign="center">
                         <Popover.Root open={open3} onOpenChange={(e) => setOpen3(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid">
@@ -107,7 +107,7 @@ function SecondHeroSection() {
                             </Portal>
                         </Popover.Root>
                     </Box>
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "5" }} gridRow={{ base: "3" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "3", md:"6", lg: "5" }} gridRow={{ base: "1", sm: "2", md:"3", lg: "3" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open4} onOpenChange={(e) => setOpen4(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid">
@@ -126,7 +126,7 @@ function SecondHeroSection() {
                             </Portal>
                         </Popover.Root>
                     </Box>
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "7" }} gridRow={{ base: "5" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "4", md:"7", lg: "7" }} gridRow={{ base: "1", sm:"2", md:"5",  lg: "4", xl: "5"}} zIndex={1} textAlign="center">
                         <Popover.Root open={open5} onOpenChange={(e) => setOpen5(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid">
@@ -154,7 +154,7 @@ function SecondHeroSection() {
                     </Box>
 
 
-                    <Button gridColumn={{ base: " 5 / span 4" }} gridRow={{ base: "3", md: "8", lg: "10" }} asChild>
+                    <Button gridColumn={{ base: " 3 / span 2", md:" 6 / span 2", lg: " 5 / span 4" }} gridRow={{ base: "4", md: "8", lg: "10" }} asChild>
                         <a href="#catalog">В каталог</a>
                     </Button>
                 </GridItem>
@@ -176,6 +176,7 @@ function SecondHeroSection() {
                     </Grid>
                 </GridItem>
             </Grid>
+            
         </section>
     );
 };

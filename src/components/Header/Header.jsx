@@ -46,7 +46,7 @@ function Header() {
         </Drawer.Root>
      
         <Box>
-          <Image h="75px" src="/img/Logo-zoomlion-gkvertical.svg" />
+          <Image h={{base: "46px", md: "75px"}} src="/img/Logo-zoomlion-gkvertical.svg" />
         </Box>
 
         <Wrap gap="6" display={{ base:"none", sm: "none", lg: "flex"}} >

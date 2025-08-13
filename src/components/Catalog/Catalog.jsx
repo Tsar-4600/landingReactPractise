@@ -14,7 +14,7 @@ function Catalog() {
         <section id="catalog" className="catalog-section">
             <Heading paddingBottom="25px" as="h2">Каталог</Heading>
             <Grid
-                templateColumns="repeat(auto-fill, minmax(320px, 1fr))"
+                templateColumns="repeat(auto-fill, minmax(280px, 1fr))"
                 gap={5}
             >
                 <GridItem>

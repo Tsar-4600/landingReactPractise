@@ -1,40 +1,92 @@
-import { Button, Heading, Input, Stack } from "@chakra-ui/react"
-
+import { Button, Heading, Input, Stack, Box, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
 function Contacts() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    //form
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm();
+  const onSubmit = (data) => {
+    console.log("Отправленные данные:", data);
+    // Здесь можно добавить отправку на сервер
+  };
 
-    const onSubmit = (data) => console.log(data);
+  // Валидация номера телефона
+  const validatePhone = (value) => {
+    const phoneRegex = /^[0-9\-\+]{9,15}$/;
+    return phoneRegex.test(value) || "Номер должен содержать 9-15 цифр";
+  };
 
-    console.log(watch("example")); // watch input value by passing the name of it
+  return (
+    <Box maxW="container.sm" mx="auto" p={4}>
+      <Heading as="h2" mb={6} textAlign="center">
+        Контакты
+      </Heading>
 
-    return (
-        <section>
-            <Heading as="h2">Контакты</Heading>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Stack maxW="320px">
-                    {/* register your input into the hook by invoking the "register" function */}
-                    <Input variant="subtitle" defaultValue="test" {...register("example")} />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={4} maxW="md" mx="auto">
+          {/* Поле телефона */}
+          <Box>
+            <Text as="label" htmlFor="phone" display="block" mb={1} fontWeight="medium">
+              Номер телефона
+            </Text>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="+7 (XXX) XXX-XX-XX"
+              variant="filled"
+              {...register("phone", {
+                required: "Обязательное поле",
+                validate: validatePhone,
+              })}
+            />
+            {errors.phone && (
+              <Text color="red.500" fontSize="sm" mt={1}>
+                {errors.phone.message}
+              </Text>
+            )}
+          </Box>
 
-                    {/* include validation with required or other standard HTML validation rules */}
-                    <Input variant="subtitle" {...register("exampleRequired", { required: true })} />
-                    {/* errors will return when field validation fails  */}
-                    {errors.exampleRequired && <span>This field is required</span>}
+          {/* Поле имени */}
+          <Box>
+            <Text as="label" htmlFor="name" display="block" mb={1} fontWeight="medium">
+              Ваше имя
+            </Text>
+            <Input
+              id="name"
+              type="text"
+              placeholder="Иван Иванов"
+              variant="filled"
+              {...register("name", {
+                required: "Обязательное поле",
+                minLength: {
+                  value: 2,
+                  message: "Минимум 2 символа",
+                },
+              })}
+            />
+            {errors.name && (
+              <Text color="red.500" fontSize="sm" mt={1}>
+                {errors.name.message}
+              </Text>
+            )}
+          </Box>
 
-                    <Button type="submit" variant={"solid"}>Отправить</Button>
-                </Stack>
-
-            </form>
-        </section>
-    );
+          <Button
+            type="submit"
+            colorScheme="teal"
+            size="lg"
+            mt={4}
+            isLoading={false} // Можно включить при отправке
+          >
+            Отправить
+          </Button>
+        </Stack>
+      </form>
+    </Box>
+  );
 }
 
 export default Contacts;
