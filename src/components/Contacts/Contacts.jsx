@@ -20,8 +20,8 @@ function Contacts() {
   };
 
   return (
-    <Box p={4}>
-      <Heading as="h2" mb={6}>
+    <section>
+      <Heading as="h2" mb={6} fontSize={{base: "1.5rem", md:"2rem", lg:"3rem"}} lineHeight={1}>
         Контакты
       </Heading>
 
@@ -85,7 +85,7 @@ function Contacts() {
           </Button>
         </Stack>
       </form>
-    </Box>
+    </section>
   );
 }
 

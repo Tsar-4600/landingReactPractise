@@ -18,6 +18,7 @@ import ThirdHeroSection from "./components/ThirdHeroSection/ThirdHeroSection";
 import Contacts from "./components/Contacts/Contacts";
 import About from "./components/About/About";
 import CallToActionBanner from "./components/CallToActionBanner/CallToActionBanner";
+import ServiceAdvantage from "./components/ServiceAdvantage/ServiceAdvantage";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <CallToActionBanner />
           <Catalog />
           <Contacts />
+          <ServiceAdvantage/>
           <About />
           <Footer />
         </Container>

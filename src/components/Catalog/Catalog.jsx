@@ -132,7 +132,7 @@ function Catalog() {
     return (
 
         <section id="catalog" className="catalog-section">
-            <Heading paddingBottom="25px" as="h2">Каталог</Heading>
+            <Heading paddingBottom="25px" as="h2" fontSize="3rem" lineHeight={1}>Каталог</Heading>
             <ProductList products={productsData.products} />
         </section>
 

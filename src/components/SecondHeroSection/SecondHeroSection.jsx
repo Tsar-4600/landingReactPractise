@@ -11,7 +11,7 @@ function SecondHeroSection() {
 
     return (
         <section>
-            <Heading paddingBottom="25px" as="h2">Вилочные погрузчики</Heading>
+            <Heading paddingBottom="25px" as="h2" fontSize={{base: "1.5rem", md:"2rem", lg:"3rem"}} lineHeight={1}>Вилочные погрузчики</Heading>
             <Grid templateColumns={{ base: "1fr", lg: "repeat(5, 1fr)" }}>
                 <GridItem colSpan={1}>
                     <Grid templateRows={{ base: "1fr", lg: "repeat(2, 1fr)" }} gap={5}>
