@@ -40,7 +40,7 @@ function SecondHeroSection() {
                     gap={5}
                     alignItems="center"
                     justifyContent="center"
-                    bgImage="url('/img/forklift/fd20h.png')"
+                    bgImage="url('/img/forklift/fd20/1.png')"
                     bgSize="contain"
                     bgPosition="center"
                     bgRepeat="no-repeat"

@@ -2,7 +2,7 @@ import { Box, Text, Flex, Button, Highlight } from "@chakra-ui/react";
 function CallToActionBanner() {
     return (
         <section>
-            <Box bg="brand.305" borderRadius={"sm"} minH="150px;" color="brand.302" padding="20px">
+            <Box bg="brand.305" borderRadius={"lg"} minH="150px;" color="brand.302" padding="20px">
                 <Text fontSize="3rem">
                     <Highlight
                         query={["ZOOMLION"]}

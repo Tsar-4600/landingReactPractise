@@ -5,7 +5,7 @@ function FirstHeroSection() {
     return (
         <section className="firstHeroSection">
             <Center>
-                <Heading as="h1" textAlign="center"  lineHeight="1.5" className="firstHeroSection__heading" maxW="850px"  fontSize={{base: "1.5rem", md:"2rem",  lg:"3rem"}} >
+                <Heading as="h1" textAlign="center"  lineHeight="1.5" className="firstHeroSection__heading" maxW={{base: "850px"}} fontSize={{base: "1.5rem", md:"2rem",  lg:"3.15rem"}} >
                     <Highlight
                         query={["ZOOMLION", "Эффективный"]}
                         styles={{px: "1", bg: "brand.303", color: "brand.302"}} 
@@ -18,8 +18,8 @@ function FirstHeroSection() {
             <Box>
                 <Flex justify={{ base: "center", md: "space-between" }} align="center">
                     <Stack className="firstHeroSection__imageWrapper" display={{ base: "none", md: "block" }}>
-                        <Image className="img-HeroSection1-left big" src="/img/forklift/fd50.png" />
-                        <Image className="img-HeroSection1-left medium" src="/img/forklift/fd20h.png" />
+                        <Image className="img-HeroSection1-left big" src="/img/forklift/fd50/1.png" />
+                        <Image className="img-HeroSection1-left medium" src="/img/forklift/fd20/1.png" />
                         <Image className="img-HeroSection1-left small" src="/img/forklift/fb35z.png" />
                     </Stack>
                     <Button asChild marginTop={"10px"} bg="brand.303">

@@ -1,429 +1,139 @@
-import { Button, Card, Image, Text, Grid, GridItem, CloseButton, Dialog, Portal, Accordion, Span, Box, Flex, Center, Heading } from "@chakra-ui/react"
-import SimpleSlider from "./catalogComponents/SimpleSlider/SimpleSlider";
+import {
+    Button, Card, Image, Text, Grid, GridItem, CloseButton, Dialog, Portal,
+    Accordion, Span, Box, Flex, Center, Heading,
+} from "@chakra-ui/react";
 
+import SimpleSlider from "./catalogComponents/SimpleSlider/SimpleSlider";
+import ProductList from "./catalogComponents/ProductList/ProductList";
+
+// Пример данных (можешь подгружать их из API/файла)
+const productsData = {
+    products: [
+
+        {
+            model: "FD50",
+            name: "Дизельный погрузчик Zoomlion FD50",
+            price: 1400000,
+            category: "вилочный погрузчик",
+            subcategory: "дизельный",
+            description: "",
+            specifications: [
+                "Двигатель:Модель двигателя:XC6110",
+                "Двигатель:Номинальная мощность:92 кВт/2200 об/мин",
+                // ... характеристики FD50
+            ],
+            images: [
+                "/img/forklift/fd50/1.png",
+                "/img/forklift/fd50/2.png"
+
+            ],
+        },
+        {
+            model: "FD20",
+            name: "Дизельный погрузчик Zoomlion FD20",
+            price: 0.0,
+            category: "вилочный погрузчик",
+            subcategory: "дизельный",
+            description: "",
+            specifications: [
+                "Двигатель:Модель двигателя:Xinchai 490",
+                "Двигатель:Номинальная мощность:34,3 кВт/2500 об/мин",
+                "Двигатель:Максимальный крутящий момент:137,7 Нм/1800 об/мин",
+                "Двигатель:Количество цилиндров:4",
+                "Двигатель:Диаметр цилиндра × ход поршня:86×102 мм",
+                "Двигатель:Рабочий объем:2,369 л",
+                "Бак:Объём топливного бака, л:60 л",
+                "Грузоподъемность:Номинальная грузоподъемность:2000 кг",
+                "Грузоподъемность:Центр нагрузки:500 мм",
+                "Грузоподъемность:Максимальная высота подъема:3000 мм",
+                "Грузоподъемность:Высота свободного хода:135 мм",
+                "Грузоподъемность:Размер вил:1070x122x40 мм",
+                "Грузоподъемность:Угол наклона мачты вперед/назад:6/12°",
+                "Трансмиссия:Тип КПП:Автоматическая коробка передач",
+                "Трансмиссия:Тип привода:Электрогидравлическая",
+                "Вес/Габариты:Минимальный радиус разворота:2240 мм",
+                "Вес/Габариты:Минимальный дорожный просвет (мачта):110 мм",
+                "Вес/Габариты:Высота защитной крыши:2060 мм",
+                "Вес/Габариты:Высота от сиденья до защитной крыши:1005 мм",
+                "Вес/Габариты:Максимальная скорость движения (с грузом):19 км/ч",
+                "Вес/Габариты:Максимальная скорость подъема (с грузом/без груза):490/510 мм/с",
+                "Вес/Габариты:Максимальное тяговое усилие/Способность преодолевать подъем (с грузом):17/20 кН/%",
+                "Вес/Габариты:Минимальная ширина прохода под прямым углом:4183 мм",
+                "Вес/Габариты:Общая длина (без вил):2570 мм",
+                "Вес/Габариты:Общая ширина:1160 мм",
+                "Вес/Габариты:Высота мачты в опущенном состоянии:1990 мм",
+                "Вес/Габариты:Максимальная высота подъема мачты:4000 мм",
+                "Вес/Габариты:Шина (передняя):7.00-12-12PR",
+                "Вес/Габариты:Шина (задняя):6.00-9-10PR",
+                "Вес/Габариты:Колесная база:1600 мм",
+                "Вес/Габариты:Протектор (передний/задний):970/970 мм",
+                "Вес/Габариты:Масса полностью снаряженного автомобиля (без груза):3350 кг",
+                "Аккумулятор:Напряжение/емкость:12/90 В/Ач",
+                "Гидравлика:Рабочее давление:17,5 MPa"
+            ],
+             images: [
+                "/img/forklift/fd20/1.png",
+                
+
+            ],
+        },
+        {
+            model: "FD30",
+            name: "Дизельный погрузчик Zoomlion FD20",
+            price: 0.0,
+            category: "вилочный погрузчик",
+            subcategory: "дизельный",
+            description: "",
+            specifications: [
+                "Двигатель:Модель двигателя:Xinchai 490",
+                "Двигатель:Номинальная мощность:34,3 кВт/2500 об/мин",
+                "Двигатель:Максимальный крутящий момент:137,7 Нм/1800 об/мин",
+                "Двигатель:Количество цилиндров:4",
+                "Двигатель:Диаметр цилиндра × ход поршня:86×102 мм",
+                "Двигатель:Рабочий объем:2,369 л",
+                "Бак:Объём топливного бака, л:60 л",
+                "Грузоподъемность:Номинальная грузоподъемность:2000 кг",
+                "Грузоподъемность:Центр нагрузки:500 мм",
+                "Грузоподъемность:Максимальная высота подъема:3000 мм",
+                "Грузоподъемность:Высота свободного хода:135 мм",
+                "Грузоподъемность:Размер вил:1070x122x40 мм",
+                "Грузоподъемность:Угол наклона мачты вперед/назад:6/12°",
+                "Трансмиссия:Тип КПП:Автоматическая коробка передач",
+                "Трансмиссия:Тип привода:Электрогидравлическая",
+                "Вес/Габариты:Минимальный радиус разворота:2240 мм",
+                "Вес/Габариты:Минимальный дорожный просвет (мачта):110 мм",
+                "Вес/Габариты:Высота защитной крыши:2060 мм",
+                "Вес/Габариты:Высота от сиденья до защитной крыши:1005 мм",
+                "Вес/Габариты:Максимальная скорость движения (с грузом):19 км/ч",
+                "Вес/Габариты:Максимальная скорость подъема (с грузом/без груза):490/510 мм/с",
+                "Вес/Габариты:Максимальное тяговое усилие/Способность преодолевать подъем (с грузом):17/20 кН/%",
+                "Вес/Габариты:Минимальная ширина прохода под прямым углом:4183 мм",
+                "Вес/Габариты:Общая длина (без вил):2570 мм",
+                "Вес/Габариты:Общая ширина:1160 мм",
+                "Вес/Габариты:Высота мачты в опущенном состоянии:1990 мм",
+                "Вес/Габариты:Максимальная высота подъема мачты:4000 мм",
+                "Вес/Габариты:Шина (передняя):7.00-12-12PR",
+                "Вес/Габариты:Шина (задняя):6.00-9-10PR",
+                "Вес/Габариты:Колесная база:1600 мм",
+                "Вес/Габариты:Протектор (передний/задний):970/970 мм",
+                "Вес/Габариты:Масса полностью снаряженного автомобиля (без груза):3350 кг",
+                "Аккумулятор:Напряжение/емкость:12/90 В/Ач",
+                "Гидравлика:Рабочее давление:17,5 MPa"
+            ],
+          
+        },
+    ],
+};
 
 function Catalog() {
-    const items = [
-        { value: "a", title: "First Item", text: "Some value 1..." },
-        { value: "b", title: "Second Item", text: "Some value 2..." },
-        { value: "c", title: "Third Item", text: "Some value 3..." },
-        { value: "v", title: "fourth Item", text: "Some value 4..." },
-    ];
+
+
+
     return (
 
         <section id="catalog" className="catalog-section">
             <Heading paddingBottom="25px" as="h2">Каталог</Heading>
-            <Grid
-                templateColumns="repeat(auto-fill, minmax(280px, 1fr))"
-                gap={5}
-            >
-                <GridItem>
-                    <Card.Root maxW="sm" overflow="hidden">
-                        <Image
-                            src="/img/forklift/fd50.png"
-                            alt="Green double couch with wooden legs"
-                        />
-                        <Card.Body gap="2">
-                            <Card.Title>Погрузчик FD50</Card.Title>
-                            <Card.Description>
-                                Идеальный погрузчик под ваши любые задачи.
-                            </Card.Description>
-                            <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-                                14000000 руб.
-                            </Text>
-                        </Card.Body>
-                        <Card.Footer gap="2">
-                            <Button variant="solid" bg="brand.303">Заказать лизинг</Button>
-                            <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom">
-                                <Dialog.Trigger asChild>
-                                    <Button variant="ghost">Подробнее</Button>
-                                </Dialog.Trigger>
-                                <Portal>
-                                    <Dialog.Backdrop />
-                                    <Dialog.Positioner>
-                                        <Dialog.Content>
-                                            <Dialog.Header>
-                                                <Dialog.Title>Погрузчик FD50</Dialog.Title>
-                                                <Dialog.CloseTrigger asChild>
-                                                    <CloseButton size="sm" />
-                                                </Dialog.CloseTrigger>
-                                            </Dialog.Header>
-                                            <Dialog.Body>
-                                                <Grid
-                                                    templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-                                                    gap={4}
-                                                >
-                                                    {/* Left Side: Slider */}
-                                                    <Center><Box>
-                                                        <SimpleSlider />
-                                                    </Box>
-                                                    </Center>
-                                                    {/* Right Side: Characteristics and Price */}
-                                                    <Box>
-                                                        < Box fontSize="2xl" fontWeight="bold" marginBottom="2">14000000 руб.</Box>
-                                                        <Flex justifyContent="space-between" flexWrap="wrap" marginBottom="2">
-                                                            <Box>Характеристика1</Box>
-                                                            <Box>Значение1</Box>
-                                                        </Flex>
-                                                        <Flex justifyContent="space-between" marginBottom="2">
-                                                            <Span>Характеристика2</Span>
-                                                            <Span>Значение2</Span>
-                                                        </Flex>
-                                                        <Flex justifyContent="space-between" marginBottom="2">
-                                                            <Span>Характеристика2</Span>
-                                                            <Span>Значение2</Span>
-                                                        </Flex>
-                                                        <Flex justifyContent="space-between" marginBottom="2">
-                                                            <Span>Характеристика2</Span>
-                                                            <Span>Значение2</Span>
-                                                        </Flex>
-                                                    </Box>
-                                                </Grid>
-
-                                                
-                                                <Accordion.Root collapsible defaultValue={["b"]}>
-                                                    {items.map((item, index) => (
-                                                        <Accordion.Item key={index} value={item.value}>
-                                                            <Accordion.ItemTrigger>
-                                                                <Span flex="1">{item.title}</Span>
-                                                                <Accordion.ItemIndicator />
-                                                            </Accordion.ItemTrigger>
-                                                            <Accordion.ItemContent>
-                                                                <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
-                                                            </Accordion.ItemContent>
-                                                        </Accordion.Item>
-                                                    ))}
-                                                </Accordion.Root>
-
-
-                                            </Dialog.Body>
-                                        </Dialog.Content>
-                                    </Dialog.Positioner>
-                                </Portal>
-                            </Dialog.Root>
-
-                        </Card.Footer>
-                    </Card.Root>
-                </GridItem>
-
-                <GridItem>
-                    <Card.Root maxW="sm" overflow="hidden">
-                        <Image
-                            src="/img/forklift/fb35z.png"
-                            alt="Green double couch with wooden legs"
-                        />
-                        <Card.Body gap="2">
-                            <Card.Title>Погрузчик FE35</Card.Title>
-                            <Card.Description>
-                                Идеальный погрузчик под ваши любые задачи.
-                            </Card.Description>
-                            <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-                                10000000 руб.
-                            </Text>
-                        </Card.Body>
-                        <Card.Footer gap="2">
-                            <Button variant="solid">Заказать лизинг</Button>
-                            <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom">
-                                <Dialog.Trigger asChild>
-                                    <Button variant="ghost">Подробнее</Button>
-                                </Dialog.Trigger>
-                                <Portal>
-                                    <Dialog.Backdrop />
-                                    <Dialog.Positioner>
-                                        <Dialog.Content>
-                                            <Dialog.Header>
-                                                <Dialog.Title>Погрузчик FE35</Dialog.Title>
-                                                <Dialog.CloseTrigger asChild>
-                                                    <CloseButton size="sm" />
-                                                </Dialog.CloseTrigger>
-                                            </Dialog.Header>
-                                            <Dialog.Body>
-                                                <Grid
-                                                    templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-                                                    gap={4}
-                                                >
-                                                    {/* Left Side: Slider */}
-                                                    <Center><Box>
-                                                        <SimpleSlider />
-                                                    </Box>
-                                                    </Center>
-                                                    {/* Right Side: Characteristics and Price */}
-                                                    <Box>
-                                                        < Box fontSize="2xl" fontWeight="bold" marginBottom="2">10000000 руб.</Box>
-                                                        <Flex justifyContent="space-between" flexWrap="wrap" marginBottom="2">
-                                                            <Span>Характеристика1</Span>
-                                                            <Span>Значение1</Span>
-                                                        </Flex>
-                                                        <Flex justifyContent="space-between" marginBottom="2">
-                                                            <Span>Характеристика2</Span>
-                                                            <Span>Значение2</Span>
-                                                        </Flex>
-                                                    </Box>
-                                                </Grid>
-                                                <Accordion.Root collapsible defaultValue={["b"]}>
-                                                    {items.map((item, index) => (
-                                                        <Accordion.Item key={index} value={item.value}>
-                                                            <Accordion.ItemTrigger>
-                                                                <Span flex="1">{item.title}</Span>
-                                                                <Accordion.ItemIndicator />
-                                                            </Accordion.ItemTrigger>
-                                                            <Accordion.ItemContent>
-                                                                <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
-                                                            </Accordion.ItemContent>
-                                                        </Accordion.Item>
-                                                    ))}
-                                                </Accordion.Root>
-
-
-                                            </Dialog.Body>
-                                        </Dialog.Content>
-                                    </Dialog.Positioner>
-                                </Portal>
-                            </Dialog.Root>
-
-                        </Card.Footer>
-                    </Card.Root>
-                </GridItem>
-
-                <GridItem>
-                    <Card.Root maxW="sm" overflow="hidden">
-                        <Image
-                            src="/img/forklift/fb35z.png"
-                            alt="Green double couch with wooden legs"
-                        />
-                        <Card.Body gap="2">
-                            <Card.Title>Погрузчик FE35</Card.Title>
-                            <Card.Description>
-                                Идеальный погрузчик под ваши любые задачи.
-                            </Card.Description>
-                            <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-                                10000000 руб.
-                            </Text>
-                        </Card.Body>
-                        <Card.Footer gap="2">
-                            <Button variant="solid">Заказать лизинг</Button>
-                            <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom">
-                                <Dialog.Trigger asChild>
-                                    <Button variant="ghost">Подробнее</Button>
-                                </Dialog.Trigger>
-                                <Portal>
-                                    <Dialog.Backdrop />
-                                    <Dialog.Positioner>
-                                        <Dialog.Content>
-                                            <Dialog.Header>
-                                                <Dialog.Title>Погрузчик FE35</Dialog.Title>
-                                                <Dialog.CloseTrigger asChild>
-                                                    <CloseButton size="sm" />
-                                                </Dialog.CloseTrigger>
-                                            </Dialog.Header>
-                                            <Dialog.Body>
-                                                <Grid
-                                                    templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-                                                    gap={4}
-                                                >
-                                                    {/* Left Side: Slider */}
-                                                    <Center><Box>
-                                                        <SimpleSlider />
-                                                    </Box>
-                                                    </Center>
-                                                    {/* Right Side: Characteristics and Price */}
-                                                    <Box>
-                                                        < Box fontSize="2xl" fontWeight="bold" marginBottom="2">10000000 руб.</Box>
-                                                        <Flex justifyContent="space-between" flexWrap="wrap" marginBottom="2">
-                                                            <Span>Характеристика1</Span>
-                                                            <Span>Значение1</Span>
-                                                        </Flex>
-                                                        <Flex justifyContent="space-between" marginBottom="2">
-                                                            <Span>Характеристика2</Span>
-                                                            <Span>Значение2</Span>
-                                                        </Flex>
-                                                    </Box>
-                                                </Grid>
-                                                <Accordion.Root collapsible defaultValue={["b"]}>
-                                                    {items.map((item, index) => (
-                                                        <Accordion.Item key={index} value={item.value}>
-                                                            <Accordion.ItemTrigger>
-                                                                <Span flex="1">{item.title}</Span>
-                                                                <Accordion.ItemIndicator />
-                                                            </Accordion.ItemTrigger>
-                                                            <Accordion.ItemContent>
-                                                                <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
-                                                            </Accordion.ItemContent>
-                                                        </Accordion.Item>
-                                                    ))}
-                                                </Accordion.Root>
-
-
-                                            </Dialog.Body>
-                                        </Dialog.Content>
-                                    </Dialog.Positioner>
-                                </Portal>
-                            </Dialog.Root>
-
-                        </Card.Footer>
-                    </Card.Root>
-                </GridItem>
-
-                <GridItem>
-                    <Card.Root maxW="sm" overflow="hidden">
-                        <Image
-                            src="/img/forklift/fb35z.png"
-                            alt="Green double couch with wooden legs"
-                        />
-                        <Card.Body gap="2">
-                            <Card.Title>Погрузчик FE35</Card.Title>
-                            <Card.Description>
-                                Идеальный погрузчик под ваши любые задачи.
-                            </Card.Description>
-                            <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-                                10000000 руб.
-                            </Text>
-                        </Card.Body>
-                        <Card.Footer gap="2">
-                            <Button variant="solid">Заказать лизинг</Button>
-                            <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom">
-                                <Dialog.Trigger asChild>
-                                    <Button variant="ghost">Подробнее</Button>
-                                </Dialog.Trigger>
-                                <Portal>
-                                    <Dialog.Backdrop />
-                                    <Dialog.Positioner>
-                                        <Dialog.Content>
-                                            <Dialog.Header>
-                                                <Dialog.Title>Погрузчик FE35</Dialog.Title>
-                                                <Dialog.CloseTrigger asChild>
-                                                    <CloseButton size="sm" />
-                                                </Dialog.CloseTrigger>
-                                            </Dialog.Header>
-                                            <Dialog.Body>
-                                                <Grid
-                                                    templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-                                                    gap={4}
-                                                >
-                                                    {/* Left Side: Slider */}
-                                                    <Center><Box>
-                                                        <SimpleSlider />
-                                                    </Box>
-                                                    </Center>
-                                                    {/* Right Side: Characteristics and Price */}
-                                                    <Box>
-                                                        < Box fontSize="2xl" fontWeight="bold" marginBottom="2">10000000 руб.</Box>
-                                                        <Flex justifyContent="space-between" flexWrap="wrap" marginBottom="2">
-                                                            <Span>Характеристика1</Span>
-                                                            <Span>Значение1</Span>
-                                                        </Flex>
-                                                        <Flex justifyContent="space-between" marginBottom="2">
-                                                            <Span>Характеристика2</Span>
-                                                            <Span>Значение2</Span>
-                                                        </Flex>
-                                                    </Box>
-                                                </Grid>
-                                                <Accordion.Root collapsible defaultValue={["b"]}>
-                                                    {items.map((item, index) => (
-                                                        <Accordion.Item key={index} value={item.value}>
-                                                            <Accordion.ItemTrigger>
-                                                                <Span flex="1">{item.title}</Span>
-                                                                <Accordion.ItemIndicator />
-                                                            </Accordion.ItemTrigger>
-                                                            <Accordion.ItemContent>
-                                                                <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
-                                                            </Accordion.ItemContent>
-                                                        </Accordion.Item>
-                                                    ))}
-                                                </Accordion.Root>
-
-
-                                            </Dialog.Body>
-                                        </Dialog.Content>
-                                    </Dialog.Positioner>
-                                </Portal>
-                            </Dialog.Root>
-
-                        </Card.Footer>
-                    </Card.Root>
-                </GridItem>
-
-                <GridItem>
-                    <Card.Root maxW="sm" overflow="hidden">
-                        <Image
-                            src="/img/excavators/zoomlion_20g.png"
-                            alt="Green double couch with wooden legs"
-                        />
-                        <Card.Body gap="2">
-                            <Card.Title>Экскаватор 20g</Card.Title>
-                            <Card.Description>
-                                Идеальный погрузчик под ваши любые задачи.
-                            </Card.Description>
-                            <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-                                10000000 руб.
-                            </Text>
-                        </Card.Body>
-                        <Card.Footer gap="2">
-                            <Button variant="solid">Заказать лизинг</Button>
-                            <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom">
-                                <Dialog.Trigger asChild>
-                                    <Button variant="ghost">Подробнее</Button>
-                                </Dialog.Trigger>
-                                <Portal>
-                                    <Dialog.Backdrop />
-                                    <Dialog.Positioner>
-                                        <Dialog.Content>
-                                            <Dialog.Header>
-                                                <Dialog.Title>Погрузчик FE35</Dialog.Title>
-                                                <Dialog.CloseTrigger asChild>
-                                                    <CloseButton size="sm" />
-                                                </Dialog.CloseTrigger>
-                                            </Dialog.Header>
-                                            <Dialog.Body>
-                                                <Grid
-                                                    templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-                                                    gap={4}
-                                                >
-                                                    {/* Left Side: Slider */}
-                                                    <Center><Box>
-                                                        <SimpleSlider />
-                                                    </Box>
-                                                    </Center>
-                                                    {/* Right Side: Characteristics and Price */}
-                                                    <Box>
-                                                        < Box fontSize="2xl" fontWeight="bold" marginBottom="2">10000000 руб.</Box>
-                                                        <Flex justifyContent="space-between" flexWrap="wrap" marginBottom="2">
-                                                            <Span>Характеристика1</Span>
-                                                            <Span>Значение1</Span>
-                                                        </Flex>
-                                                        <Flex justifyContent="space-between" marginBottom="2">
-                                                            <Span>Характеристика2</Span>
-                                                            <Span>Значение2</Span>
-                                                        </Flex>
-                                                    </Box>
-                                                </Grid>
-                                                <Accordion.Root collapsible defaultValue={["b"]}>
-                                                    {items.map((item, index) => (
-                                                        <Accordion.Item key={index} value={item.value}>
-                                                            <Accordion.ItemTrigger>
-                                                                <Span flex="1">{item.title}</Span>
-                                                                <Accordion.ItemIndicator />
-                                                            </Accordion.ItemTrigger>
-                                                            <Accordion.ItemContent>
-                                                                <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
-                                                            </Accordion.ItemContent>
-                                                        </Accordion.Item>
-                                                    ))}
-                                                </Accordion.Root>
-
-
-                                            </Dialog.Body>
-                                        </Dialog.Content>
-                                    </Dialog.Positioner>
-                                </Portal>
-                            </Dialog.Root>
-
-                        </Card.Footer>
-                    </Card.Root>
-                </GridItem>
-
-
-            </Grid>
+            <ProductList products={productsData.products} />
         </section>
 
 
