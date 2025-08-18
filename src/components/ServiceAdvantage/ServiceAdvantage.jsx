@@ -15,13 +15,10 @@ function ServiceAdvantage() {
             >
                 Выездные Бригады
             </Heading>
-            <Grid templateColumns={{base: "1, 1fr", md: "repeat(2, 1fr)"}} gap={5}>
+            <Grid templateColumns={{base: "1, 1fr", md: "repeat(2, 1fr)"}} gap={5} marginBottom={5}>
                 <GridItem>
-                    <Span>Ваша техника — под надежным контролем! Регулярное техобслуживание и оперативная помощь при неожиданных поломках — мы обеспечиваем бесперебойную работу вашего оборудования. Предупредите проблемы до их появления или вызовите бригаду для срочного ремонта — мы всегда на связи!</Span>
+                    <Span>Ваша техника — под надежным контролем! Регулярное техобслуживание и оперативная помощь при неожиданных поломках — мы обеспечиваем бесперебойную работу вашей техники. Предупредите проблемы до их появления или вызовите бригаду для срочного ремонта — мы всегда на связи!</Span>
                    
-                </GridItem>
-                <GridItem>
-                    <Span>Ваша техника — под надежным контролем! Регулярное техобслуживание и оперативная помощь при неожиданных поломках — мы обеспечиваем бесперебойную работу вашего оборудования. Предупредите проблемы до их появления или вызовите бригаду для срочного ремонта — мы всегда на связи!</Span>
                 </GridItem>
             </Grid>
 
@@ -37,7 +34,7 @@ function ServiceAdvantage() {
                     rowSpan={{ base: 1, md: 2 }}
                 >
                     <Image
-                        src="/img/default.jpg"
+                        src="/img/autoservice/moving-autoservice2.jpg"
                         width="100%"
                         height="100%"
                         objectFit="cover"
@@ -48,41 +45,41 @@ function ServiceAdvantage() {
                 {/* Первая горизонтальная пара изображений */}
                 <GridItem colSpan={{ base: 4, md: 2 }} rowSpan={1}>
                     <Image
-                        src="/img/default.jpg"
+                        src="/img/autoservice/moving-autoservice1.jpg"
                         width="100%"
                         height="100%"
                         objectFit="cover"
-                        alt="Рабочий процесс"
+                        alt="выездные бригады"
                     />
                 </GridItem>
 
                 <GridItem colSpan={{ base: 4, md: 1 }} rowSpan={2}>
                     <Image
-                        src="/img/default.jpg"
+                        src="/img/autoservice/moving-autoservice4.jpg"
                         width="100%"
                         height="100%"
                         objectFit="cover"
-                        alt="Оборудование"
+                        alt="выездные бригады"
                     />
                 </GridItem>
 
                 {/* Вторая горизонтальная пара изображений */}
                 <GridItem colSpan={{ base: 4, md: 1 }} rowSpan={1}>
                     <Image
-                        src="/img/default.jpg"
+                        src="/img/autoservice/moving-autoservice3.jpg"
                         width="100%"
                         height="100%"
                         objectFit="cover"
-                        alt="Специалисты"
+                        alt="выездные бригады"
                     />
                 </GridItem>
                 <GridItem colSpan={{ base: 4, md: 1 }} rowSpan={1}>
                     <Image
-                        src="/img/default.jpg"
+                        src="/img/autoservice/moving-autoservice5.jpg"
                         width="100%"
                         height="100%"
                         objectFit="cover"
-                        alt="Специалисты"
+                        alt="выездные бригады"
                     />
                 </GridItem>
             </Grid>

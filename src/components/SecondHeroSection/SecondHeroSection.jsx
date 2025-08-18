@@ -59,6 +59,7 @@ function SecondHeroSection() {
                                     <Popover.Content>
                                         <Popover.Arrow />
                                         <Popover.Body>
+                                            
                                             Прочная мачта и обзорность. Широкие швеллеры, опция двойного цилиндра
                                         </Popover.Body>
                                     </Popover.Content>
@@ -141,7 +142,7 @@ function SecondHeroSection() {
 
                                             <Highlight
                                                 query={["Swing-out", "LED Curtis"]}
-                                                styles={{ px: "0.5", bg: "brand.303" }}
+                                                styles={{ px: "0.5", bg: "brand.303", color:"brand.302" }}
                                             >
                                                 Удобный доступ и эргономика. Swing-out панели, LED Curtis, простая диагностика
                                             </Highlight>

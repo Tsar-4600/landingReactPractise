@@ -58,7 +58,7 @@ function ThirdHeroSection() {
                                         <Popover.Body>
                                             <Highlight
                                                 query={["Load-sensing гидравлика.", "Экономия топлива", "8%"]}
-                                                styles={{ px: "0.5", bg: "brand.303" }}
+                                                styles={{ px: "0.5", bg: "brand.303", color:"brand.302"}}
                                             >
                                                 Load-sensing гидравлика.
                                                 Датчики нагрузки подают в насос ровно столько давления и объёма масла, сколько требует конкретное движение.
@@ -86,7 +86,7 @@ function ThirdHeroSection() {
                                         <Popover.Body>
                                             <Highlight
                                                 query={["Kubota", "Yanmar", "высоким КПД", "Common Rail"]}
-                                                styles={{ px: "0.5", bg: "brand.303" }}
+                                                styles={{ px: "0.5", bg: "brand.303", color:"brand.302" }}
                                             >
                                                 Современные дизельные двигатели Stage III/IV.
                                                 Используются моторы Kubota или Yanmar с высоким КПД и точной подачй топливы через электронный впрыск Common Rail.
@@ -112,7 +112,7 @@ function ThirdHeroSection() {
                                         <Popover.Body>
                                             <Highlight
                                                 query={["Маневренность", "Zero Tail Swing"]}
-                                                styles={{ px: "0.5", bg: "brand.303" }}
+                                                styles={{ px: "0.5", bg: "brand.303", color:"brand.302"}}
                                             >
                                                 Маневренность в стесненных условиях, благодаря укороченной задней части дизайна Zero Tail Swing
                                             </Highlight>
@@ -138,7 +138,7 @@ function ThirdHeroSection() {
 
                                             <Highlight
                                                 query={["быстрее выгружать", "Оптимизированные углы"]}
-                                                styles={{ px: "0.5", bg: "brand.303" }}
+                                                styles={{ px: "0.5", bg: "brand.303", color:"brand.302"}}
                                             >
                                                 Кинематика стрелы и ковша. Оптимизированные углы поворота и подъема позволяют быстрее выгружать материал без лишних движений
                                             </Highlight>
@@ -163,7 +163,7 @@ function ThirdHeroSection() {
 
                                             <Highlight
                                                 query={["ROFS/FOPS", "комфорт и безопасность"]}
-                                                styles={{ px: "0.5", bg: "brand.303" }}
+                                                styles={{ px: "0.5", bg: "brand.303", color:"brand.302"}}
                                             >
                                                 Кабины ROFS/FOPS, подвесные кресла, визуальный дисплей, кондиционер это комфорт и безопасность на высоком уровне
                                             </Highlight>
