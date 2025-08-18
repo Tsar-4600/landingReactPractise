@@ -42,7 +42,8 @@ const ProductCard = ({ product }) => {
       />
       <Card.Body gap="2">
         <Card.Title>{product.name}</Card.Title>
-        <Card.Description>
+        <Card.Description lineClamp={"4"}>
+
           {product.description || "Идеальный погрузчик под ваши любые задачи."}
         </Card.Description>
         <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
@@ -104,8 +105,10 @@ const ProductCard = ({ product }) => {
                       </Button>
                     </Box>
                   </Grid>
-
+                   <Heading as="h3" mb="1.25rem">Описание</Heading>
+                    <Box>{product.description}</Box>
                   <Accordion.Root collapsible defaultValue={["b"]} mt="1.25rem">
+                   
                     {accordionItems.map((item, index) => (
                       <Accordion.Item key={index} value={item.value}>
                         <Accordion.ItemTrigger>
