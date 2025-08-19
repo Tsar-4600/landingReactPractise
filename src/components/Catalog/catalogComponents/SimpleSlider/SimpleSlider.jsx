@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Image, Box, Center, Spinner } from "@chakra-ui/react";
 
 function SimpleSlider({ images =[]}) { // Значение по умолчанию пустой массив
-    console.log(images)
+    
     const settings = {
         dots: true,
         infinite: true,

@@ -23,7 +23,7 @@ function FirstHeroSection() {
                         <Image className="img-HeroSection1-left small" src="/img/forklift/fb35z.png" />
                     </Stack>
                     <Button asChild marginTop={"10px"} bg="brand.303">
-                        <a href="#catalog">Преимущества</a>
+                        <a href="#secondHeroSection">Преимущества</a>
                     </Button>
                     <Stack className="firstHeroSection__imageWrapper" display={{ base: "none", md: "block" }}>
                         <Image className="img-HeroSection1-right big" src="/img/excavators/zoomlion_75ga.png" />

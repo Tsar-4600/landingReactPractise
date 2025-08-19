@@ -19,6 +19,7 @@ import Contacts from "./components/Contacts/Contacts";
 import About from "./components/About/About";
 import CallToActionBanner from "./components/CallToActionBanner/CallToActionBanner";
 import ServiceAdvantage from "./components/ServiceAdvantage/ServiceAdvantage";
+import { Toaster } from "./components/ui/toaster";
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
           <Footer />
         </Container>
         {/* END Content of the page */}
-
+        <Toaster />
 
       </Theme>
     </ChakraProvider>

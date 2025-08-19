@@ -1,4 +1,4 @@
-import { Heading, Box, Image, Grid, GridItem,  Span} from "@chakra-ui/react";
+import { Heading, Box, Image, Grid, GridItem, Span, Button, Center } from "@chakra-ui/react";
 import Zoom from 'react-medium-image-zoom'
 
 
@@ -15,10 +15,15 @@ function ServiceAdvantage() {
             >
                 Выездные Бригады
             </Heading>
-            <Grid templateColumns={{base: "1, 1fr", md: "repeat(2, 1fr)"}} gap={5} marginBottom={5}>
+            <Grid templateColumns={{ base: "1, 1fr", md: "repeat(2, 1fr)" }} gap={5} marginBottom={5} alignItems={"center"} justifyItems={"center"}>
                 <GridItem>
                     <Span>Ваша техника — под надежным контролем! Регулярное техобслуживание и оперативная помощь при неожиданных поломках — мы обеспечиваем бесперебойную работу вашей техники. Предупредите проблемы до их появления или вызовите бригаду для срочного ремонта — мы всегда на связи!</Span>
-                   
+
+                </GridItem>
+                <GridItem>
+                  
+                        <Button size={"xl"} variant={"solid"} bg={"brand.303"} color={"brand.304"} width="100%" w={ {base: "300px", md: "400px"}}>Позвонить</Button>
+                    
                 </GridItem>
             </Grid>
 

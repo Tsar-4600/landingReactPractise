@@ -1,11 +1,32 @@
 import {
   Button, Card, Image, Text, Grid, CloseButton, Dialog, Portal,
-  Accordion, Box, Flex, Center, Heading, // если используешь Span из Chakra v3 — оставь:
+  Accordion, Box, Flex, Center, Heading, Field, Input, Stack,
   Span,
 } from "@chakra-ui/react";
 import SimpleSlider from "../SimpleSlider/SimpleSlider";
+import { useForm } from "react-hook-form";
+import { toaster } from "../../../ui/toaster"; // Импортируем toaster
+import { useState } from "react"; // Добавляем useState для состояния загрузки
 
 const ProductCard = ({ product }) => {
+  const [isLoading, setIsLoading] = useState(false); // Состояние загрузки
+
+  // Инициализируем react-hook-form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isDirty, isValid },
+    reset,
+    watch
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange"
+  });
+
+  // Отслеживаем значения полей для отладки
+  const watchName = watch("name");
+  const watchPhone = watch("phone");
+
   // безопасно работаем со спецификациями
   const specs = Array.isArray(product?.specifications) ? product.specifications : [];
 
@@ -34,16 +55,62 @@ const ProductCard = ({ product }) => {
     ),
   }));
 
+  // Функция отправки формы с toaster
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    
+    try {
+      const response = await fetch('http://localhost:3001/api/submit-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          product: product.name
+        })
+      });
+
+      if (response.ok) {
+        // Успешное уведомление
+        toaster.success({
+          title: "Успешно!",
+          description: "Заявка отправлена! Мы свяжемся с вами в ближайшее время",
+          duration: 5000,
+          closable: true,
+        });
+        reset(); // Сбрасываем форму
+      } else {
+        // Ошибка сервера
+        toaster.error({
+          title: "Ошибка",
+          description: "Ошибка при отправке заявки. Попробуйте еще раз.",
+          duration: 5000,
+          closable: true,
+        });
+      }
+    } catch (error) {
+      // Ошибка сети
+      toaster.error({
+        title: "Ошибка сети",
+        description: "Проверьте подключение к интернету и попробуйте еще раз.",
+        duration: 5000,
+        closable: true,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Card.Root maxW="sm" overflow="hidden">
       <Image
-        src={`/img/forklift/${product.model.toLowerCase()}/1.png`}
+        src={product.images[0]}
         alt={product.name}
       />
       <Card.Body gap="2">
         <Card.Title>{product.name}</Card.Title>
         <Card.Description lineClamp={"4"}>
-
           {product.description || "Идеальный погрузчик под ваши любые задачи."}
         </Card.Description>
         <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
@@ -52,7 +119,82 @@ const ProductCard = ({ product }) => {
       </Card.Body>
 
       <Card.Footer gap="2">
-        <Button variant="solid" bg="brand.303">Заказать лизинг</Button>
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <Button variant="solid" bg="brand.303">Заказать лизинг</Button>
+          </Dialog.Trigger>
+          <Portal>
+            <Dialog.Backdrop />
+            <Dialog.Positioner>
+              <Dialog.Content as="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+                <Dialog.Header>
+                  <Dialog.CloseTrigger asChild>
+                    <CloseButton />
+                  </Dialog.CloseTrigger>
+                  <Dialog.Title>Оформление Заявки</Dialog.Title>
+                </Dialog.Header>
+                <Dialog.Body pb="4">
+                  <Stack gap="4">
+                    <Field.Root invalid={!!errors.name}>
+                      <Field.Label>Имя</Field.Label>
+                      <Input
+                        placeholder="Имя"
+                        {...register("name", {
+                          required: "Имя обязательно",
+                          minLength: {
+                            value: 2,
+                            message: "Имя должно содержать минимум 2 символа"
+                          }
+                        })}
+                        isInvalid={!!errors.name}
+                      />
+                      {errors.name && (
+                        <Field.ErrorText>
+                          {errors.name.message}
+                        </Field.ErrorText>
+                      )}
+                    </Field.Root>
+                    
+                    {/* Добавьте другие поля формы здесь */}
+                    <Field.Root invalid={!!errors.phone}>
+                      <Field.Label>Телефон</Field.Label>
+                      <Input
+                        placeholder="+7 (999) 999-99-99"
+                        {...register("phone", {
+                          required: "Телефон обязателен",
+                          pattern: {
+                            value: /^\+?[78][-(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/,
+                            message: "Введите корректный номер телефона"
+                          }
+                        })}
+                        isInvalid={!!errors.phone}
+                      />
+                      {errors.phone && (
+                        <Field.ErrorText>
+                          {errors.phone.message}
+                        </Field.ErrorText>
+                      )}
+                    </Field.Root>
+                  </Stack>
+                </Dialog.Body>
+                <Dialog.Footer>
+                  <Button
+                    type="submit"
+                    size="sm"
+                    variant="solid"
+                    bg="brand.303"
+                    color="brand.304"
+                    isDisabled={!isDirty || !isValid || isLoading} // Добавляем isLoading
+                    isLoading={isLoading} // Показываем индикатор загрузки
+                    loadingText="Отправка..."
+                  >
+                    Отправить заявку
+                  </Button>
+                </Dialog.Footer>
+              </Dialog.Content>
+            </Dialog.Positioner>
+          </Portal>
+        </Dialog.Root>
 
         <Dialog.Root size="cover" placement="center" motionPreset="slide-in-bottom" scrollBehavior="inside">
           <Dialog.Trigger asChild>
@@ -73,14 +215,12 @@ const ProductCard = ({ product }) => {
 
                 <Dialog.Body>
                   <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={4}>
-                    {/* Left: Slider */}
                     <Center>
                       <Box>
                         <SimpleSlider images={product?.images || []} />
                       </Box>
                     </Center>
 
-                    {/* Right: Specs + Price */}
                     <Box>
                       <Box fontSize="2xl" fontWeight="bold" mb="1.5rem">
                         {product.price > 0 ? `Цена ${product.price.toLocaleString()} руб.` : "Цена по запросу"}
@@ -105,10 +245,9 @@ const ProductCard = ({ product }) => {
                       </Button>
                     </Box>
                   </Grid>
-                   <Heading as="h3" mb="1.25rem">Описание</Heading>
-                    <Box>{product.description}</Box>
+                  <Heading as="h3" mb="1.25rem">Описание</Heading>
+                  <Box>{product.description}</Box>
                   <Accordion.Root collapsible defaultValue={["b"]} mt="1.25rem">
-                   
                     {accordionItems.map((item, index) => (
                       <Accordion.Item key={index} value={item.value}>
                         <Accordion.ItemTrigger>

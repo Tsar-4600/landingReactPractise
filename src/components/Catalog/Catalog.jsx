@@ -11,17 +11,17 @@ function SubCategoryTabs({ products }) {
     }
 
     return (
-        <Tabs.Root defaultValue={subcategories[0]}>
-            <Tabs.List>
+        <Tabs.Root defaultValue={subcategories[0]} >
+            <Tabs.List >
                 {subcategories.map(subcategory => (
-                    <Tabs.Trigger key={subcategory} value={subcategory}>
+                    <Tabs.Trigger key={subcategory} value={subcategory} fontSize={{base: "12px", sm:"16px"}}   >
                         {subcategory}
                     </Tabs.Trigger>
                 ))}
             </Tabs.List>
 
             {subcategories.map(subcategory => (
-                <Tabs.Content key={subcategory} value={subcategory}>
+                <Tabs.Content key={subcategory} value={subcategory}  >
                     <ProductList
                         products={products.filter(p => p.subcategory === subcategory)}
                     />
@@ -80,7 +80,7 @@ function Catalog() {
             <Tabs.Root defaultValue={categories[0]}>
                 <Tabs.List>
                     {categories.map(category => (
-                        <Tabs.Trigger key={category} value={category}>
+                        <Tabs.Trigger key={category} value={category } fontSize={{base: "14px", sm:"16px"}} >
                             {category}
                         </Tabs.Trigger>
                     ))}

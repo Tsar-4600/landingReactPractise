@@ -8,6 +8,7 @@ const config = defineConfig({
   theme: {
     semanticTokens: {
       colors: {
+        
         bg: {
           DEFAULT: {
             value: { _light: "{colors.white}", _dark: "{colors.brand.304}" }, // Custom dark background
