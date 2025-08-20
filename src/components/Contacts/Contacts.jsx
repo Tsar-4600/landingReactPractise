@@ -1,12 +1,10 @@
-import { 
-  Button, 
-  Heading, 
-  Input, 
-  Stack, 
-  Box, 
-  Text,
+import {
+  Button,
+  Heading,
+  Input,
+  Stack,
+  Box,
   Field,
-  Flex
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -32,9 +30,9 @@ function Contacts() {
 
   const onSubmit = async (data) => {
     setIsLoading(true);
-    
+
     try {
-      const response = await fetch('http://localhost:3001/api/submit-application', {
+      const response = await fetch('http://localhost:3001/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,14 +64,14 @@ function Contacts() {
   };
 
   return (
-    <section>
-      <Heading as="h2" mb={6} fontSize={{base: "1.5rem", md:"2rem", lg:"3rem"}} lineHeight={1}>
+    <section id="contacts"> 
+      <Heading as="h2" mb={6} fontSize={{ base: "1.5rem", md: "2rem", lg: "3rem" }} lineHeight={1}>
         Контакты
       </Heading>
 
       <Box as="form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <Stack spacing={4} maxW="md">
-           {/* Поле имени с Field компонентом */}
+          {/* Поле имени с Field компонентом */}
           <Field.Root invalid={!!errors.name}>
             <Field.Label>Ваше имя</Field.Label>
             <Input
@@ -95,7 +93,7 @@ function Contacts() {
                   message: "Имя может содержать только буквы, пробелы и дефисы"
                 }
               })}
-            
+
             />
             {errors.name && (
               <Field.ErrorText>
@@ -113,7 +111,7 @@ function Contacts() {
               {...register("phone", {
                 required: "Телефон обязателен",
                 pattern: {
-                  value: /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/,
+                  value: /^(\+7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/,
                   message: "Введите корректный номер телефона"
                 },
                 minLength: {
@@ -129,9 +127,9 @@ function Contacts() {
             )}
           </Field.Root>
 
-         
 
-       
+
+
 
           <Button
             type="submit"

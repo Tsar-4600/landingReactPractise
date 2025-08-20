@@ -5,7 +5,7 @@ import Zoom from 'react-medium-image-zoom'
 function ServiceAdvantage() {
     return (
 
-        <Box>
+        <Box as="section">
             <Heading
                 as="h2"
                 fontSize={{ base: "1.5rem", md: "2rem", lg: "3rem" }}
@@ -15,7 +15,7 @@ function ServiceAdvantage() {
             >
                 Выездные Бригады
             </Heading>
-            <Grid templateColumns={{ base: "1, 1fr", md: "repeat(2, 1fr)" }} gap={5} marginBottom={5} alignItems={"center"} justifyItems={"center"}>
+            <Grid templateColumns={{ base: "1, 1fr", md: "repeat(2, 1fr)" }} gap={5} marginBottom={5} alignItems={"center"} justifyItems={"center"} p="20px">
                 <GridItem>
                     <Span>Ваша техника — под надежным контролем! Регулярное техобслуживание и оперативная помощь при неожиданных поломках — мы обеспечиваем бесперебойную работу вашей техники. Предупредите проблемы до их появления или вызовите бригаду для срочного ремонта — мы всегда на связи!</Span>
 

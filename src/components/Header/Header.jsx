@@ -9,7 +9,7 @@ function Header() {
       <Flex justify="space-between" align="center" zIndex="sticky">
         <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)} >
           <Drawer.Trigger asChild>
-            <Button variant="outline" size="sm" display={{ sm: "block", lg: "none",}}>
+            <Button variant="outline" size="sm" display={{ sm: "block", lg: "none", }}>
               --
               --
             </Button>
@@ -23,10 +23,10 @@ function Header() {
                 </Drawer.Header>
                 <Drawer.Body>
                   <Flex direction="column">
-                    <Link href="...">Каталог</Link>
-                    <Link href="...">Преимущества</Link>
-                    <Link href="...">Контакты</Link>
-                    <Link href="...">О нас</Link>
+                    <Link href="#catalog">Каталог</Link>
+                    <Link href="#secondHeroSection">Преимущества</Link>
+                    <Link href="#contacts">Контакты</Link>
+                    <Link href="#about">О нас</Link>
                   </Flex>
                 </Drawer.Body>
                 <Drawer.Footer>
@@ -44,19 +44,19 @@ function Header() {
             </Drawer.Positioner>
           </Portal>
         </Drawer.Root>
-     
+
         <Box>
-          <Image h={{base: "46px", md: "75px"}} src="/img/Logo-zoomlion-gkvertical.svg" />
+          <Image h={{ base: "46px", md: "75px" }} src="/img/Logo-zoomlion-gkvertical.svg" />
         </Box>
 
-        <Wrap gap="6" display={{ base:"none", sm: "none", lg: "flex"}} >
-          <Link href="...">Каталог</Link>
-          <Link href="...">Преимущества</Link>
-          <Link href="...">Контакты</Link>
-          <Link href="...">О нас</Link>
+        <Wrap gap="6" display={{ base: "none", sm: "none", lg: "flex" }} >
+          <Link href="#catalog">Каталог</Link>
+          <Link href="#secondHeroSection">Преимущества</Link>
+          <Link href="#contacts">Контакты</Link>
+          <Link href="#about">О нас</Link>
         </Wrap>
 
-        <Flex direction="column" align="flex-end" display={{base: "none", sm: "none", lg: "flex"}}>
+        <Flex direction="column" align="flex-end" display={{ base: "none", sm: "none", lg: "flex" }}>
           <Link href="tel:+78126657804">+7 812 665-78-04</Link>
           <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>
           <Link href="https://gkvertikal.ru/">Сайт Дистрибьютора</Link>

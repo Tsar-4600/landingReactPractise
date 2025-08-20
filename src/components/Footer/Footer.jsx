@@ -37,7 +37,8 @@ function Footer() {
             <Link href="tel:+78126657804">+7 812 665-78-04</Link>
             <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>
             <Link href="https://gkvertikal.ru/">Сайт Дистрибьютора</Link>
-            <Button bg="brand.303">Оставить заявку</Button>
+            <Button bg="brand.303" asChild><a href="#contacts">Оставить заявку</a></Button>
+            
             <Text>© 2025 ГК Вертикаль</Text>
           </Flex>
         </GridItem>
