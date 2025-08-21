@@ -1,5 +1,6 @@
 import './Header.css'
 import { Box, Flex, Wrap, Link, Image, Drawer, Button, CloseButton, Portal } from "@chakra-ui/react"
+import { IoMenu } from "react-icons/io5";
 import { useState } from "react"
 
 function Header() {
@@ -10,8 +11,7 @@ function Header() {
         <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)} >
           <Drawer.Trigger asChild>
             <Button variant="outline" size="sm" display={{ sm: "block", lg: "none", }}>
-              --
-              --
+              <IoMenu size="16px" />
             </Button>
           </Drawer.Trigger>
           <Portal>

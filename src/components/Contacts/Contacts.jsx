@@ -16,7 +16,6 @@ function Contacts() {
     handleSubmit,
     formState: { errors, isDirty, isValid },
     reset,
-    watch
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange"
@@ -24,20 +23,21 @@ function Contacts() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  // Отслеживаем значения для отладки
-  const watchName = watch("name");
-  const watchPhone = watch("phone");
 
   const onSubmit = async (data) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_DOMAIN_URL}/api/submit`, {
+      const response = await fetch(`${import.meta.env.VITE_DOMAIN_URL}/api/submit-contacts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone
+         
+        })
       });
 
       if (response.ok) {

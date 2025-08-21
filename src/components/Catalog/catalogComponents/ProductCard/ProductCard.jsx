@@ -1,7 +1,7 @@
 import {
   Button, Card, Image, Text, Grid, CloseButton, Dialog, Portal,
   Accordion, Box, Flex, Center, Heading, Field, Input, Stack,
-  Span,
+  Span, Separator
 } from "@chakra-ui/react";
 import SimpleSlider from "../SimpleSlider/SimpleSlider";
 import { useForm } from "react-hook-form";
@@ -19,6 +19,7 @@ const MemoizedSpecs = memo(({ groupedSpecs }) => {
           <Span>{item.split(":").slice(1).join(":")}</Span>
         </Flex>
       ))}
+      <Separator />
     </Box>
   ));
 });
@@ -44,6 +45,14 @@ const LeaseForm = memo(({ onSubmit, isLoading, register, errors, isDirty, isVali
                 minLength: {
                   value: 2,
                   message: "Имя должно содержать минимум 2 символа"
+                },
+                maxLength: {
+                  value: 50,
+                  message: "Имя не должно превышать 50 символов"
+                },
+                pattern: {
+                  value: /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/,
+                  message: "Имя может содержать только буквы, пробелы и дефисы"
                 }
               })}
             />
@@ -107,7 +116,7 @@ const ProductCard = ({ product }) => {
   // Мемоизация группировки спецификаций
   const { groupedSpecs, accordionItems } = useMemo(() => {
     const specs = Array.isArray(product?.specifications) ? product.specifications : [];
-    
+
     const grouped = specs.reduce((acc, spec) => {
       const [category, ...rest] = String(spec).split(":");
       const value = rest.join(":");
@@ -139,7 +148,7 @@ const ProductCard = ({ product }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_DOMAIN_URL}/api/submit`, {
+      const response = await fetch(`${import.meta.env.VITE_DOMAIN_URL}/api/submit-model`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -252,11 +261,16 @@ const ProductCard = ({ product }) => {
 
                       <Heading as="h3" mb="1.25rem">Характеристики</Heading>
                       <MemoizedSpecs groupedSpecs={groupedSpecs} />
+                      <Box textWrap={"wrap"} fontWeight={"bold"}>
 
-                      <Button 
-                        variant="solid" 
-                        bg="brand.303" 
-                        color="brand.304" 
+                        Внешний вид и характеристики товара могут незначительно отличаться.
+                      </Box>
+
+                      <Box textWrap={"wrap"}> Производитель постоянно работает над улучшением товара, поэтому его внешний вид и характеристики могут обновляться. Наши менеджеры с радостью предоставят вам актуальную информацию и помогут подобрать модель, которая полностью соответствует вашим ожиданиям.</Box>
+                      <Button
+                        variant="solid"
+                        bg="brand.303"
+                        color="brand.304"
                         mt="1.25rem"
                         onClick={() => setDialogOpen(true)}
                       >
@@ -264,8 +278,9 @@ const ProductCard = ({ product }) => {
                       </Button>
                     </Box>
                   </Grid>
-                  <Heading as="h3" mb="1.25rem">Описание</Heading>
+                  <Heading as="h3" mb="1.25rem" mt="1.25rem">Описание</Heading>
                   <Box>{product.description}</Box>
+                  <Heading as="h3" mb="1.25rem" mt="1.25rem" >Подробные характеристики</Heading>
                   <Accordion.Root collapsible defaultValue={["b"]} mt="1.25rem">
                     {accordionItems.map((item, index) => (
                       <Accordion.Item key={index} value={item.value}>
