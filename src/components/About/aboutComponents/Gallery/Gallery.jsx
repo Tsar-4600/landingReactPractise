@@ -53,6 +53,16 @@ function Gallery() {
 
                                 </Zoom>
                             </Box>
+                             <Box>
+                                <Zoom>
+                                    <Image
+                                        alt=""
+                                        src="/img/dealerForkLiftGk.png"
+
+                                    />
+
+                                </Zoom>
+                            </Box>
                         </Slider>
 
                     </Box >
