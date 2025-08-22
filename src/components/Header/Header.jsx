@@ -11,7 +11,7 @@ function Header() {
         <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)} >
           <Drawer.Trigger asChild>
             <Button variant="outline" size="sm" display={{ sm: "block", lg: "none", }}>
-              <IoMenu size="16px" />
+              <IoMenu />
             </Button>
           </Drawer.Trigger>
           <Portal>
