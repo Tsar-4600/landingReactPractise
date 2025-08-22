@@ -22,15 +22,18 @@ function Header() {
                   <Drawer.Title>Навигация</Drawer.Title>
                 </Drawer.Header>
                 <Drawer.Body>
-                  <Flex direction="column">
-                    <Link href="#catalog">Каталог</Link>
-                    <Link href="#secondHeroSection">Преимущества</Link>
-                    <Link href="#contacts">Контакты</Link>
-                    <Link href="#about">О нас</Link>
-                  </Flex>
+                  <Drawer.Context>
+                    {(store) => (
+                      <Flex direction="column">
+                        <Link href="#catalog" onClick={() => store.setOpen(false)}>Каталог</Link>
+                        <Link href="#secondHeroSection" onClick={() => store.setOpen(false)}>Преимущества</Link>
+                        <Link href="#contacts" onClick={() => store.setOpen(false)}>Контакты</Link>
+                        <Link href="#about" onClick={() => store.setOpen(false)}>О нас</Link>
+                      </Flex>
+                    )}
+                  </Drawer.Context>
                 </Drawer.Body>
                 <Drawer.Footer>
-                  <Button variant="outline">Заказать заявку</Button>
                   <Flex direction="column">
                     <Link href="tel:+78126657804">+7 812 665-78-04</Link>
                     <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>

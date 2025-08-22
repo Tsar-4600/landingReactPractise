@@ -20,11 +20,11 @@ function SecondHeroSection() {
                             <Box><Text textAlign={"center"}>Глобальная и быстрая поставка запчастей </Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Image rounded="full" w="128px" h="128px" src="/img/herosections/factory-check.webp" />
                             <Box><Text textAlign={"center"}>Многоступенчатая проверка качества на заводах Zoomlion</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Image rounded="full" w="128px" h="128px" src="/img/herosections/autoservice.webp" />
                             <Box><Text textAlign={"center"}>Крепкая сервисная база</Text></Box>
                         </GridItem>
                     </Grid>
@@ -101,7 +101,6 @@ function SecondHeroSection() {
                                         <Popover.Arrow />
                                         <Popover.Body>
                                             Энергоэффективность, низкие  Эксплутационные расходы СТО
-
                                         </Popover.Body>
                                     </Popover.Content>
                                 </Popover.Positioner>
@@ -146,7 +145,6 @@ function SecondHeroSection() {
                                             >
                                                 Удобный доступ и эргономика. Swing-out панели, LED Curtis, простая диагностика
                                             </Highlight>
-                                            
                                         </Popover.Body>
                                     </Popover.Content>
                                 </Popover.Positioner>
@@ -163,8 +161,8 @@ function SecondHeroSection() {
                 <GridItem colSpan={1}>
                     <Grid templateRows="repeat(2, 1fr)" gap={5}>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
-                            <Box><Text textAlign={"center"} >Широкая линейка под любые задачи</Text ></Box>
+                            <Image rounded="full" w="128px" h="128px" src="/img/herosections/forkliftVariation.webp" />
+                            <Box><Text textAlign={"center"} >Широкие линейки под любые задачи</Text ></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
