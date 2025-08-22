@@ -10,10 +10,14 @@ import { useState, useMemo, useCallback, memo } from "react";
 
 // Мемоизированный компонент для предотвращения ненужных ререндеров
 const MemoizedSpecs = memo(({ groupedSpecs }) => {
-  return Object.entries(groupedSpecs).map(([category, items]) => (
+  // Берем только первые 4 раздела для отображения в правом окне
+  const limitedSections = Object.entries(groupedSpecs).slice(0, 4);
+  
+  return limitedSections.map(([category, items]) => (
     <Box key={category} mb="4">
       <Heading as="h4" size="md" mb="2">{category}</Heading>
-      {items.slice(0, 3).map((item, i) => (
+      {/* Берем только первые 2 характеристики в каждом разделе для правого окна */}
+      {items.slice(0, 2).map((item, i) => (
         <Flex key={i} justifyContent="space-between" mb="2">
           <Span>{item.split(":")[0]}</Span>
           <Span>{item.split(":").slice(1).join(":")}</Span>
