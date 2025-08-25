@@ -26,10 +26,10 @@ function Footer() {
         </GridItem>
         <GridItem   >
           <Flex direction={"column"} alignItems={"flex-start"} gap={5}>
-            <Link href="...">Каталог</Link>
-            <Link href="...">Преимущества</Link>
-            <Link href="...">Контакты</Link>
-            <Link href="...">О нас</Link>
+            <Link href="#catalog">Каталог</Link>
+            <Link href="#secondHeroSection">Преимущества</Link>
+            <Link href="#contacts">Контакты</Link>
+            <Link href="#about">О нас</Link>
           </Flex>
         </GridItem>
         <GridItem  >
@@ -38,7 +38,7 @@ function Footer() {
             <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>
             <Link href="https://gkvertikal.ru/">Сайт Дистрибьютора</Link>
             <Button bg="brand.303" asChild><a href="#contacts">Оставить заявку</a></Button>
-            
+
             <Text>© 2025 ГК Вертикаль</Text>
           </Flex>
         </GridItem>
