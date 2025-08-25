@@ -35,7 +35,7 @@ function Header() {
                 </Drawer.Body>
                 <Drawer.Footer>
                   <Flex direction="column">
-                    <Link href="tel:+78126657804">+7 812 665-78-04</Link>
+                    <Link href="tel:+78123894545">+7 812 389-45-45</Link>
                     <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>
                     <Link href="https://gkvertikal.ru/">Сайт Дистрибьютора</Link>
                   </Flex>
@@ -60,7 +60,7 @@ function Header() {
         </Wrap>
 
         <Flex direction="column" align="flex-end" display={{ base: "none", sm: "none", lg: "flex" }}>
-          <Link href="tel:+78126657804">+7 812 665-78-04</Link>
+          <Link href="tel:+78123894545">+7 812 389-45-45</Link>
           <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>
           <Link href="https://gkvertikal.ru/">Сайт Дистрибьютора</Link>
 

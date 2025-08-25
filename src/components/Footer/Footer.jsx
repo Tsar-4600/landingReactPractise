@@ -34,7 +34,7 @@ function Footer() {
         </GridItem>
         <GridItem  >
           <Flex direction={"column"} alignItems={"flex-end"} gap={5}>
-            <Link href="tel:+78126657804">+7 812 665-78-04</Link>
+            <Link href="tel:+78123894545">+7 812 389-45-45</Link>
             <Link href="mailto:sales@gkvertikal.ru">sales@gkvertikal.ru</Link>
             <Link href="https://gkvertikal.ru/">Сайт Дистрибьютора</Link>
             <Button bg="brand.303" asChild><a href="#contacts">Оставить заявку</a></Button>
