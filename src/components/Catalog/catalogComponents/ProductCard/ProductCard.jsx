@@ -12,7 +12,7 @@ import { useState, useMemo, useCallback, memo } from "react";
 const MemoizedSpecs = memo(({ groupedSpecs }) => {
   // Берем только первые 4 раздела для отображения в правом окне
   const limitedSections = Object.entries(groupedSpecs).slice(0, 4);
-  
+
   return limitedSections.map(([category, items]) => (
     <Box key={category} mb="4">
       <Heading as="h4" size="md" mb="2">{category}</Heading>
@@ -173,6 +173,13 @@ const ProductCard = ({ product }) => {
         });
         reset();
         setDialogOpen(false);
+      } else if (response.status === 429) {
+        toaster.warning({
+          title: "Превышен лимит заявок",
+          description: "Вы уже подали заявку, непереживайте, менеджеры обязательно с вами свяжутся",
+          duration: 8000, // Увеличиваем длительность для важного сообщения
+          closable: true,
+        })
       } else {
         toaster.error({
           title: "Ошибка",

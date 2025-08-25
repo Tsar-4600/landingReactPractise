@@ -22,7 +22,7 @@ function ServiceAdvantage() {
                 </GridItem>
                 <GridItem>
                   
-                        <Button size={"xl"} variant={"solid"} bg={"brand.303"} color={"brand.304"}  w={ {base: "290px", md: "400px"}}>Позвонить</Button>
+                        <Button size={"xl"} variant={"solid"} bg={"brand.303"} color={"brand.304"}  w={ {base: "290px", md: "400px"}} asChild><a href="tel:+78126657927">Позвонить</a></Button>
                     
                 </GridItem>
             </Grid>
