@@ -118,6 +118,13 @@ function CallToActionBanner() {
                 });
                 reset();
                 setDialogOpen(false);
+            } else if (response.status === 429) {
+                toaster.warning({
+                    title: "Превышен лимит заявок",
+                    description: "Вы уже подали заявку, менеджеры обязательно с вами свяжуться",
+                    duration: 8000, // Увеличиваем длительность для важного сообщения
+                    closable: true,
+                })
             } else {
                 toaster.error({
                     title: "Ошибка",

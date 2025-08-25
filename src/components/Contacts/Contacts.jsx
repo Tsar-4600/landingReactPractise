@@ -36,7 +36,7 @@ function Contacts() {
         body: JSON.stringify({
           name: data.name,
           phone: data.phone
-         
+
         })
       });
 
@@ -48,6 +48,13 @@ function Contacts() {
           closable: true,
         });
         reset();
+      } else if (response.status === 429) {
+        toaster.warning({
+          title: "Превышен лимит заявок",
+          description: "Вы уже подали заявку, непереживайте, менеджеры обязательно с вами свяжутся",
+          duration: 8000, // Увеличиваем длительность для важного сообщения
+          closable: true,
+        })
       } else {
         throw new Error('Ошибка сервера');
       }
@@ -64,7 +71,7 @@ function Contacts() {
   };
 
   return (
-    <section id="contacts"> 
+    <section id="contacts">
       <Heading as="h2" mb={6} fontSize={{ base: "1.5rem", md: "2rem", lg: "3rem" }} lineHeight={1}>
         Контакты
       </Heading>
