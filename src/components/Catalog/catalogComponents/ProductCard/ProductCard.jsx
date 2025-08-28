@@ -213,7 +213,7 @@ const ProductCard = ({ product }) => {
           {product.description || "Идеальный погрузчик под ваши любые задачи."}
         </Card.Description>
         <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-          {product.price > 0 ? `${product.price.toLocaleString()} руб.` : "Цена по запросу"}
+          {product.price > 0 ? `От ${product.price.toLocaleString()} руб.` : "Цена по запросу"}
         </Text>
       </Card.Body>
 
@@ -267,7 +267,7 @@ const ProductCard = ({ product }) => {
 
                     <Box>
                       <Box fontSize="2xl" fontWeight="bold" mb="1.5rem">
-                        {product.price > 0 ? `Цена ${product.price.toLocaleString()} руб.` : "Цена по запросу"}
+                        {product.price > 0 ? `Цена от ${product.price.toLocaleString()} руб.` : "Цена по запросу"}
                       </Box>
 
                       <Heading as="h3" mb="1.25rem">Характеристики</Heading>

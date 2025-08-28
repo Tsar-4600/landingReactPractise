@@ -121,7 +121,7 @@ function CallToActionBanner() {
             } else if (response.status === 429) {
                 toaster.warning({
                     title: "Превышен лимит заявок",
-                    description: "Вы уже подали заявку, менеджеры обязательно с вами свяжуться",
+                    description: "Вы уже подали заявку, непереживайте, менеджеры обязательно с вами свяжутся",
                     duration: 8000, // Увеличиваем длительность для важного сообщения
                     closable: true,
                 })
