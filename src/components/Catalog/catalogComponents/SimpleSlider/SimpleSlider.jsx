@@ -52,7 +52,7 @@ function SimpleSlider({ images =[]}) { // Значение по умолчани
                             alt={`Изображение ${index + 1}`}
                             onError={() => handleImageError(index)}
                             loading="lazy"
-                        
+                            maxH={"350px"}
                         />
                     </Box>
                 ))}

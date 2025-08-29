@@ -1,5 +1,6 @@
 import { Heading, Grid, GridItem, Image, Text, Box, Button, Popover, Portal, Highlight } from "@chakra-ui/react";
-import { useState } from "react"
+import Zoom from 'react-medium-image-zoom';
+import { useState } from "react";
 function SecondHeroSection() {
     const [open1, setOpen1] = useState(false);
     const [open2, setOpen2] = useState(false);
@@ -11,20 +12,24 @@ function SecondHeroSection() {
 
     return (
         <section id="secondHeroSection">
-            <Heading paddingBottom="25px" as="h2" fontSize={{base: "1.5rem", md:"2rem", lg:"3rem"}} lineHeight={1}>Вилочные погрузчики</Heading>
+            <Heading paddingBottom="25px" as="h2" fontSize={{ base: "1.5rem", md: "2rem", lg: "3rem" }} lineHeight={1}>Вилочные погрузчики</Heading>
             <Grid templateColumns={{ base: "1fr", lg: "repeat(5, 1fr)" }}>
                 <GridItem colSpan={1}>
                     <Grid templateRows={{ base: "1fr", lg: "repeat(2, 1fr)" }} gap={5}>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Zoom>
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/partsService.png" />
+                            </Zoom>
                             <Box><Text textAlign={"center"}>Глобальная и быстрая поставка запчастей </Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/herosections/factory-check.webp" />
+                            <Zoom><Image rounded="full" w="128px" h="128px" src="/img/herosections/factory-check.webp" /></Zoom>
                             <Box><Text textAlign={"center"}>Многоступенчатая проверка качества на заводах Zoomlion</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/herosections/autoservice.webp" />
+                            <Zoom>
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/autoservice.webp" />
+                            </Zoom>
                             <Box><Text textAlign={"center"}>Крепкая сервисная база</Text></Box>
                         </GridItem>
                     </Grid>
@@ -47,7 +52,7 @@ function SecondHeroSection() {
 
                 >
 
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "3", sm:"2", md:"5", xl: "5" }} gridRow={{ base: "2", sm:"3", md:"6", lg: "5", xl: "7" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "3", sm: "2", md: "5", xl: "5" }} gridRow={{ base: "2", sm: "3", md: "6", lg: "5", xl: "7" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open1} onOpenChange={(e) => setOpen1(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid" >
@@ -59,7 +64,7 @@ function SecondHeroSection() {
                                     <Popover.Content>
                                         <Popover.Arrow />
                                         <Popover.Body>
-                                            
+
                                             Прочная мачта и обзорность. Широкие швеллеры, опция двойного цилиндра
                                         </Popover.Body>
                                     </Popover.Content>
@@ -68,7 +73,7 @@ function SecondHeroSection() {
                         </Popover.Root>
                     </Box>
 
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "4", sm:"4", md:"8", lg: "8" }} gridRow={{ base: "2", sm: "3", md:"6",  lg: "5", xl: "7" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "4", sm: "4", md: "8", lg: "8" }} gridRow={{ base: "2", sm: "3", md: "6", lg: "5", xl: "7" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open2} onOpenChange={(e) => setOpen2(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid"  >
@@ -88,7 +93,7 @@ function SecondHeroSection() {
                         </Popover.Root>
                     </Box>
 
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "5", md:"9", lg: "9" }} gridRow={{ base: "2", sm: "3",  md:"5",  lg: "4", xl: "7"}} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "5", md: "9", lg: "9" }} gridRow={{ base: "2", sm: "3", md: "5", lg: "4", xl: "7" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open3} onOpenChange={(e) => setOpen3(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid" >
@@ -107,7 +112,7 @@ function SecondHeroSection() {
                             </Portal>
                         </Popover.Root>
                     </Box>
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "3", md:"6", lg: "5" }} gridRow={{ base: "1", sm: "2", md:"3", lg: "3" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "3", md: "6", lg: "5" }} gridRow={{ base: "1", sm: "2", md: "3", lg: "3" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open4} onOpenChange={(e) => setOpen4(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid" >
@@ -126,7 +131,7 @@ function SecondHeroSection() {
                             </Portal>
                         </Popover.Root>
                     </Box>
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "4", md:"7", lg: "7" }} gridRow={{ base: "1", sm:"2", md:"5",  lg: "4", xl: "5"}} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "4", md: "7", lg: "7" }} gridRow={{ base: "1", sm: "2", md: "5", lg: "4", xl: "5" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open5} onOpenChange={(e) => setOpen5(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid" >
@@ -141,7 +146,7 @@ function SecondHeroSection() {
 
                                             <Highlight
                                                 query={["Swing-out", "LED Curtis"]}
-                                                styles={{ px: "0.5", bg: "brand.303", color:"brand.302" }}
+                                                styles={{ px: "0.5", bg: "brand.303", color: "brand.302" }}
                                             >
                                                 Удобный доступ и эргономика. Swing-out панели, LED Curtis, простая диагностика
                                             </Highlight>
@@ -153,7 +158,7 @@ function SecondHeroSection() {
                     </Box>
 
 
-                    <Button gridColumn={{ base: " 3 / span 2", md:" 6 / span 2", lg: " 5 / span 4" }} gridRow={{ base: "4", md: "8", lg: "10" }} asChild bg="brand.303">
+                    <Button gridColumn={{ base: " 3 / span 2", md: " 6 / span 2", lg: " 5 / span 4" }} gridRow={{ base: "4", md: "8", lg: "10" }} asChild bg="brand.303">
                         <a href="#catalog">В каталог</a>
                     </Button>
                 </GridItem>
@@ -161,21 +166,27 @@ function SecondHeroSection() {
                 <GridItem colSpan={1}>
                     <Grid templateRows="repeat(2, 1fr)" gap={5}>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/herosections/forkliftVariation.webp" />
+                            <Zoom>
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/forkliftVariation.webp" />
+                            </Zoom>
                             <Box><Text textAlign={"center"} >Широкие линейки под любые задачи</Text ></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Zoom>
+                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            </Zoom>
                             <Box><Text textAlign={"center"}>Современные экологичные технологии</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
-                            <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            <Zoom>
+                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                            </Zoom>
                             <Box><Text textAlign={"center"}>Простое и удобное управление</Text></Box>
                         </GridItem>
                     </Grid>
                 </GridItem>
             </Grid>
-            
+
         </section>
     );
 };
