@@ -93,7 +93,7 @@ function SecondHeroSection() {
                         </Popover.Root>
                     </Box>
 
-                    <Box className="heroSection2__advantage" gridColumn={{ base: "5", md: "9", lg: "9" }} gridRow={{ base: "2", sm: "3", md: "5", lg: "4", xl: "7" }} zIndex={1} textAlign="center">
+                    <Box className="heroSection2__advantage" gridColumn={{ base: "5", md: "9", lg: "9" }} gridRow={{ base: "2", sm: "3", md: "5", lg: "4", xl: "6" }} zIndex={1} textAlign="center">
                         <Popover.Root open={open3} onOpenChange={(e) => setOpen3(e.open)}>
                             <Popover.Trigger asChild>
                                 <Button size="sm" variant="solid" >
@@ -179,7 +179,7 @@ function SecondHeroSection() {
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/control.png" />
                             </Zoom>
                             <Box><Text textAlign={"center"}>Простое и удобное управление</Text></Box>
                         </GridItem>
