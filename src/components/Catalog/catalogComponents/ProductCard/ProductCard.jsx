@@ -249,7 +249,7 @@ const ProductCard = ({ product }) => {
             <Dialog.Positioner>
               <Dialog.Content>
                 <Dialog.Header>
-                  <Dialog.Title fontSize={{ base: "3xl", md: "5xl" }}>
+                  <Dialog.Title fontSize={{ base:"lg", small: "3xl", md: "5xl" }}>
                     {product.name}
                   </Dialog.Title>
                   <Dialog.CloseTrigger asChild>
@@ -266,7 +266,7 @@ const ProductCard = ({ product }) => {
                     </Center>
 
                     <Box>
-                      <Box fontSize="2xl" fontWeight="bold" mb="1.5rem">
+                      <Box fontSize={{ base:"md", md: "2xl"}} fontWeight="bold" mb="1.5rem" mt="1rem">
                         {product.price > 0 ? `Цена от ${product.price.toLocaleString()} руб.` : "Цена по запросу"}
                       </Box>
 
