@@ -38,7 +38,7 @@ function Gallery() {
                                 <Zoom>
                                     <Image
                                         alt=""
-                                        src="/img/subdealerGk.jpg"
+                                        src="/img/specTechSnabAvtokrane.png"
 
                                     />
                                 </Zoom>
