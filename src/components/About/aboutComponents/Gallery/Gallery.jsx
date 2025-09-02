@@ -17,12 +17,12 @@ function Gallery() {
     }
     return (
         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} paddingTop="1.5rem" gap="5">
-            <GridItem fontSize={{base: "1rem", md:"1.2rem"}}>
+            <GridItem fontSize={{ base: "1rem", md: "1.2rem" }}>
                 <Text>Начиная свой путь как субдилеры, мы работали с техникой Zoomlion через партнеров, постепенно укрепляя свою репутацию на рынке.</Text>
                 <Text>Благодаря надежности, профессионализму команды и растущему кругу партнеров нам удалось завоевать доверие производителя.</Text>
                 <Text> Приобретение статуса официального дилера стало закономерным этапом нашего развития. Этот шаг стал возможен благодаря нескольким ключевым факторам: качественному сервисному обслуживанию клиентов и развитой дилерской сети.</Text>
                 <Text>Новый статус подтверждает наш высокий уровень работы и открывает дополнительные возможности.</Text>
-                <List.Root paddingLeft={{base: "1.2rem"}} >
+                <List.Root paddingLeft={{ base: "1.2rem" }} >
                     <List.Item _marker={{ color: "brand.303" }}>Более выгодные цены за счет прямых контрактов с Zoomlion.</List.Item>
                     <List.Item _marker={{ color: "brand.303" }}>Сокращенные сроки поставки благодаря отлаженной логистике.</List.Item>
                     <List.Item _marker={{ color: "brand.303" }}>Поставки оригинальных запчастей.</List.Item>
@@ -38,8 +38,16 @@ function Gallery() {
                                 <Zoom>
                                     <Image
                                         alt=""
-                                        src="/img/specTechSnabAvtokrane.png"
+                                        src="/img/dealerForkLiftGk.png"
 
+                                    />
+                                </Zoom>
+                            </Box>
+                            <Box>
+                                <Zoom>
+                                    <Image
+                                        alt=""
+                                        src="/img/specTechSnabAvtokrane.png"
                                     />
                                 </Zoom>
                             </Box>
@@ -53,16 +61,7 @@ function Gallery() {
 
                                 </Zoom>
                             </Box>
-                             <Box>
-                                <Zoom>
-                                    <Image
-                                        alt=""
-                                        src="/img/dealerForkLiftGk.png"
 
-                                    />
-
-                                </Zoom>
-                            </Box>
                         </Slider>
 
                     </Box >

@@ -173,7 +173,7 @@ function SecondHeroSection() {
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/ecology-technology.png" />
                             </Zoom>
                             <Box><Text textAlign={"center"}>Современные экологичные технологии</Text></Box>
                         </GridItem>
