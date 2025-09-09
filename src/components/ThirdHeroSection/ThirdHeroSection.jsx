@@ -15,22 +15,22 @@ function ThirdHeroSection() {
                     <Grid templateRows={{ base: "1fr", lg: "repeat(2, 1fr)" }} gap={5}>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/fast-change-equipment.png" />
                             </Zoom>
-                            <Box><Text textAlign={"center"} >Прочные рабочие узлы</Text></Box>
+                            <Box><Text textAlign={"center"} >Быстросъемные устройства</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/additional-hydrolines-for-more-equipment.png" />
                             </Zoom>
 
-                            <Box><Text textAlign={"center"}>Повышенная долговечность конструкции</Text></Box>
+                            <Box><Text textAlign={"center"}>Дополнительные гидролинии для других навесок</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/on-stop-maintance.jpg" />
                             </Zoom>
-                            <Box><Text textAlign={"center"}>Переоборудуемость для различных подвесок</Text></Box>
+                            <Box><Text textAlign={"center"}>Одноэтапное техническое обслуживание</Text></Box>
                         </GridItem>
                     </Grid>
                 </GridItem>
@@ -190,19 +190,19 @@ function ThirdHeroSection() {
                     <Grid templateRows="repeat(2, 1fr)">
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/wide-base.png" />
                             </Zoom>
                             <Box><Text textAlign={"center"}>Расширенная опорная база дает стабилизацию и равномерный износ</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/LCDpanel.png" />
                             </Zoom>
-                            <Box><Text textAlign={"center"}>Встроенный GPS для безопасности</Text></Box>
+                            <Box><Text textAlign={"center"}>Жидкокристаллические панели управления</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
-                                <Image rounded="full" w="128px" h="128px" src="/img/default.jpg" />
+                                <Image rounded="full" w="128px" h="128px" src="/img/herosections/multitasking-performance.png" />
                             </Zoom>
                             <Box><Text textAlign={"center"}>Одновременность копания, поворачивания и перемещения</Text></Box>
                         </GridItem>
