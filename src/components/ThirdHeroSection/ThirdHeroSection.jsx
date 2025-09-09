@@ -17,7 +17,7 @@ function ThirdHeroSection() {
                             <Zoom>
                                 <Image rounded="full" w="128px" h="128px" src="/img/herosections/fast-change-equipment.png" />
                             </Zoom>
-                            <Box><Text textAlign={"center"} >Быстросъемные устройства</Text></Box>
+                            <Box><Text textAlign={"center"} >Быстросъемное устройство с гидравлическим управлением</Text></Box>
                         </GridItem>
                         <GridItem textStyle="lg" display="flex" flexDirection="column" alignItems="center" gap={2}>
                             <Zoom>
