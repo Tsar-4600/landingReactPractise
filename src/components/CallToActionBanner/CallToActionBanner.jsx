@@ -118,6 +118,11 @@ function CallToActionBanner() {
                 });
                 reset();
                 setDialogOpen(false);
+                if (window.ym) {
+                    window.ym(465723451, 'reachGoal', 'SpeacialLease'); // Яндекс.Метрика
+                }
+
+
             } else if (response.status === 429) {
                 toaster.warning({
                     title: "Превышен лимит заявок",
