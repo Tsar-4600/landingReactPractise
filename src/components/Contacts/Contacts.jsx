@@ -49,7 +49,7 @@ function Contacts() {
         });
         reset();
         if (window.ym) {
-          window.ym(465723392, 'reachGoal', 'submit-contacts'); // Яндекс.Метрика
+          window.ym(103878066, 'reachGoal', 'submit-contacts'); // Яндекс.Метрика
         }
       } else if (response.status === 429) {
         toaster.warning({

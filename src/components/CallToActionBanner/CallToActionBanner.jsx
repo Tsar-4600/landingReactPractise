@@ -119,9 +119,8 @@ function CallToActionBanner() {
                 reset();
                 setDialogOpen(false);
                 if (window.ym) {
-                    window.ym(465723451, 'reachGoal', 'SpeacialLease'); // Яндекс.Метрика
+                    window.ym(103878066, 'reachGoal', 'SpeacialLease'); // Яндекс.Метрика
                 }
-
 
             } else if (response.status === 429) {
                 toaster.warning({

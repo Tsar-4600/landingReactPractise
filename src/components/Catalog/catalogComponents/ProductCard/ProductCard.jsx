@@ -174,7 +174,7 @@ const ProductCard = ({ product }) => {
         reset();
         setDialogOpen(false);
         if (window.ym) {
-          window.ym(465722123, 'reachGoal', 'submit-model'); // Яндекс.Метрика
+          window.ym(103878066, 'reachGoal', 'submit-model'); // Яндекс.Метрика
         }
       } else if (response.status === 429) {
         toaster.warning({
