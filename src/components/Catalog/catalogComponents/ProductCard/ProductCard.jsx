@@ -1,12 +1,13 @@
 import {
   Button, Card, Image, Text, Grid, CloseButton, Dialog, Portal,
   Accordion, Box, Flex, Center, Heading, Field, Input, Stack,
-  Span, Separator
+  Span, Separator, Checkbox, Link
 } from "@chakra-ui/react";
 import SimpleSlider from "../SimpleSlider/SimpleSlider";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { toaster } from "../../../ui/toaster";
 import { useState, useMemo, useCallback, memo } from "react";
+import PolicyPopUp from "../../../PolicyPopUp/PolicyPopUp";
 
 // Мемоизированный компонент для предотвращения ненужных ререндеров
 const MemoizedSpecs = memo(({ groupedSpecs }) => {
@@ -29,82 +30,136 @@ const MemoizedSpecs = memo(({ groupedSpecs }) => {
 });
 
 // Выносим форму в отдельный компонент для оптимизации
-const LeaseForm = memo(({ onSubmit, isLoading, register, errors, isDirty, isValid, product }) => {
+const LeaseForm = memo(({ onSubmit, isLoading, register, errors, isDirty, isValid, product, control, watch }) => {
+  const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+  const isAgreed = watch("agreement");
+
   return (
-    <Dialog.Content as="form" onSubmit={onSubmit} noValidate>
-      <Dialog.Header>
-        <Dialog.CloseTrigger asChild>
-          <CloseButton />
-        </Dialog.CloseTrigger>
-        <Dialog.Title>Оформление Заявки</Dialog.Title>
-      </Dialog.Header>
-      <Dialog.Body pb="4">
-        <Stack gap="4">
-          <Field.Root invalid={!!errors.name}>
-            <Field.Label>Имя</Field.Label>
-            <Input
-              placeholder="Имя"
-              {...register("name", {
-                required: "Имя обязательно",
-                minLength: {
-                  value: 2,
-                  message: "Имя должно содержать минимум 2 символа"
-                },
-                maxLength: {
-                  value: 50,
-                  message: "Имя не должно превышать 50 символов"
-                },
-                pattern: {
-                  value: /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/,
-                  message: "Имя может содержать только буквы, пробелы и дефисы"
-                }
-              })}
-            />
-            {errors.name && (
-              <Field.ErrorText>
-                {errors.name.message}
-              </Field.ErrorText>
-            )}
-          </Field.Root>
+    <>
+      <Dialog.Content as="form" onSubmit={onSubmit} noValidate>
+        <Dialog.Header>
+          <Dialog.CloseTrigger asChild>
+            <CloseButton />
+          </Dialog.CloseTrigger>
+          <Dialog.Title>Оформление Заявки</Dialog.Title>
+        </Dialog.Header>
+        <Dialog.Body pb="4">
+          <Stack gap="4">
+            <Field.Root invalid={!!errors.name}>
+              <Field.Label>Имя</Field.Label>
+              <Input
+                placeholder="Имя"
+                {...register("name", {
+                  required: "Имя обязательно",
+                  minLength: {
+                    value: 2,
+                    message: "Имя должно содержать минимум 2 символа"
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: "Имя не должно превышать 50 символов"
+                  },
+                  pattern: {
+                    value: /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/,
+                    message: "Имя может содержать только буквы, пробелы и дефисы"
+                  }
+                })}
+              />
+              {errors.name && (
+                <Field.ErrorText>
+                  {errors.name.message}
+                </Field.ErrorText>
+              )}
+            </Field.Root>
 
-          <Field.Root invalid={!!errors.phone}>
-            <Field.Label>Телефон</Field.Label>
-            <Input
-              placeholder="+7 (999) 999-99-99"
-              {...register("phone", {
-                required: "Телефон обязателен",
-                pattern: {
-                  value: /^(\+7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/,
-                  message: "Введите корректный номер телефона"
-                },
-              })}
-            />
-            {errors.phone && (
-              <Field.ErrorText>
-                {errors.phone.message}
-              </Field.ErrorText>
-            )}
-          </Field.Root>
+            <Field.Root invalid={!!errors.phone}>
+              <Field.Label>Телефон</Field.Label>
+              <Input
+                placeholder="+7 (999) 999-99-99"
+                {...register("phone", {
+                  required: "Телефон обязателен",
+                  pattern: {
+                    value: /^(\+7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/,
+                    message: "Введите корректный номер телефона"
+                  },
+                })}
+              />
+              {errors.phone && (
+                <Field.ErrorText>
+                  {errors.phone.message}
+                </Field.ErrorText>
+              )}
+            </Field.Root>
 
-          {/* Скрытое поле для модели */}
-          <input type="hidden" {...register("model")} value={product.model} />
-        </Stack>
-      </Dialog.Body>
-      <Dialog.Footer>
-        <Button
-          type="submit"
-          size="sm"
-          variant="solid"
-          bg="brand.303"
-          color="brand.304"
-          isDisabled={!isDirty || !isValid || isLoading}
-          isLoading={isLoading}
-          loadingText="Отправка..."
-        >
-          Отправить заявку
-        </Button>
-      </Dialog.Footer>
-    </Dialog.Content>
+            {/* Checkbox для согласия с обработкой персональных данных */}
+            <Field.Root invalid={!!errors.agreement}>
+              <Controller
+                name="agreement"
+                control={control}
+                rules={{ required: "Необходимо согласие на обработку персональных данных" }}
+                render={({ field }) => (
+                  <Checkbox.Root
+                    checked={field.value}
+                    onCheckedChange={({ checked }) => field.onChange(checked)}
+                    gap="3"
+                    alignItems="flex-start"
+                  >
+                    <Checkbox.HiddenInput />
+                    <Checkbox.Control />
+                    <Checkbox.Label fontSize={{base: "10px", md: "14px"}}>
+                      Согласен с{" "}
+                      <Link
+                        colorPalette="blue"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsPolicyOpen(true);
+                        }}
+                        textDecoration="underline"
+                        cursor="pointer"
+                      >
+                        обработкой персональных данных
+                      </Link>
+                    </Checkbox.Label>
+                  </Checkbox.Root>
+                )}
+              />
+              {errors.agreement && (
+                <Field.ErrorText>
+                  {errors.agreement.message}
+                </Field.ErrorText>
+              )}
+            </Field.Root>
+
+            {/* Скрытое поле для модели */}
+            <input type="hidden" {...register("model")} value={product.model} />
+          </Stack>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Button
+            type="submit"
+            size="sm"
+            variant="solid"
+            bg="brand.303"
+            color="brand.304"
+            isDisabled={!isDirty || !isValid || !isAgreed || isLoading}
+            isLoading={isLoading}
+            loadingText="Отправка..."
+          >
+            Отправить заявку
+          </Button>
+        </Dialog.Footer>
+      </Dialog.Content>
+
+      {/* Отдельный диалог для политики конфиденциальности */}
+      <Dialog.Root open={isPolicyOpen} onOpenChange={(e) => setIsPolicyOpen(e.open)}>
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <PolicyPopUp />
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
+    </>
   );
 });
 
@@ -112,9 +167,12 @@ const ProductCard = ({ product }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const { register, handleSubmit, formState: { errors, isDirty, isValid }, reset } = useForm({
+  const { register, handleSubmit, control, formState: { errors, isDirty, isValid }, reset, watch } = useForm({
     mode: "onChange",
-    reValidateMode: "onChange"
+    reValidateMode: "onChange",
+    defaultValues: {
+      agreement: false
+    }
   });
 
   // Мемоизация группировки спецификаций
@@ -160,7 +218,8 @@ const ProductCard = ({ product }) => {
         body: JSON.stringify({
           name: data.name,
           phone: data.phone,
-          model: data.model // Только модель передаем на сервер
+          model: data.model, // Только модель передаем на сервер
+          agreement: data.agreement
         })
       });
 
@@ -238,6 +297,8 @@ const ProductCard = ({ product }) => {
                 isDirty={isDirty}
                 isValid={isValid}
                 product={product}
+                control={control}
+                watch={watch}
               />
             </Dialog.Positioner>
           </Portal>

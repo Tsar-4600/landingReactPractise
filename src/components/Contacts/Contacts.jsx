@@ -5,10 +5,14 @@ import {
   Stack,
   Box,
   Field,
+  Checkbox,
+  Link,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { toaster } from "../ui/toaster";
+import PolicyPopUp from "../PolicyPopUp/PolicyPopUp";
+import { Dialog, Portal } from "@chakra-ui/react";
 
 function Contacts() {
   const {
@@ -16,13 +20,18 @@ function Contacts() {
     handleSubmit,
     formState: { errors, isDirty, isValid },
     reset,
+    watch,
   } = useForm({
     mode: "onChange",
-    reValidateMode: "onChange"
+    reValidateMode: "onChange",
+    defaultValues: {
+      agreement: false
+    }
   });
 
   const [isLoading, setIsLoading] = useState(false);
-
+  const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+  const isAgreed = watch("agreement");
 
   const onSubmit = async (data) => {
     setIsLoading(true);
@@ -35,8 +44,8 @@ function Contacts() {
         },
         body: JSON.stringify({
           name: data.name,
-          phone: data.phone
-
+          phone: data.phone,
+          agreement: data.agreement
         })
       });
 
@@ -103,7 +112,6 @@ function Contacts() {
                   message: "Имя может содержать только буквы, пробелы и дефисы"
                 }
               })}
-
             />
             {errors.name && (
               <Field.ErrorText>
@@ -111,6 +119,7 @@ function Contacts() {
               </Field.ErrorText>
             )}
           </Field.Root>
+
           {/* Поле телефона с Field компонентом */}
           <Field.Root invalid={!!errors.phone}>
             <Field.Label>Номер телефона</Field.Label>
@@ -137,9 +146,38 @@ function Contacts() {
             )}
           </Field.Root>
 
-
-
-
+          {/* Checkbox для согласия с обработкой персональных данных */}
+          <Field.Root invalid={!!errors.agreement}>
+            <Checkbox.Root
+              {...register("agreement", {
+                required: "Необходимо согласие на обработку персональных данных"
+              })}
+              gap="3"
+              alignItems="flex-start"
+            >
+              <Checkbox.HiddenInput />
+              <Checkbox.Control />
+              <Checkbox.Label fontSize={{base: "11px", md: "14px"}}>
+                Согласен с{" "}
+                <Link
+                  colorPalette="blue"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsPolicyOpen(true);
+                  }}
+                  textDecoration="underline"
+                  cursor="pointer"
+                >
+                  обработкой персональных данных
+                </Link>
+              </Checkbox.Label>
+            </Checkbox.Root>
+            {errors.agreement && (
+              <Field.ErrorText>
+                {errors.agreement.message}
+              </Field.ErrorText>
+            )}
+          </Field.Root>
 
           <Button
             type="submit"
@@ -148,13 +186,22 @@ function Contacts() {
             mt={4}
             isLoading={isLoading}
             loadingText="Отправка..."
-            isDisabled={!isDirty || !isValid || isLoading}
+            isDisabled={!isDirty || !isValid || !isAgreed || isLoading}
           >
             Отправить
           </Button>
-
         </Stack>
       </Box>
+
+      {/* Отдельный диалог для политики конфиденциальности */}
+      <Dialog.Root open={isPolicyOpen} onOpenChange={(e) => setIsPolicyOpen(e.open)}>
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <PolicyPopUp />
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     </section>
   );
 }
